@@ -1,0 +1,80 @@
+/* ========================================== */
+/* 04. HERO / BANNER PRINCIPAL */
+/* ========================================== */
+.hero {
+    background: linear-gradient(135deg, var(--naranja) 0%, var(--amarillo) 100%);
+    padding: var(--padding-hero-desktop);
+    text-align: center;
+    min-height: var(--min-height-hero-desktop);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-family: var(--fuente-titulo);
+    font-size: var(--tamano-hero-titulo);
+    color: var(--chocolate);
+    margin-bottom: var(--espacio-sm);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: var(--tamano-hero-subtitulo);
+    color: var(--chocolate);
+    margin-bottom: var(--espacio-lg);
+    opacity: 0.9;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background: var(--color-whatsapp);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: var(--espacio-md) var(--espacio-lg);
+    border-radius: var(--radio-boton-grande);
+    font-size: var(--tamano-boton-texto);
+    font-weight: bold;
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE: HERO */
+/* ========================================== */
+
+/* ✅ TABLET */
+@media (max-width: var(--breakpoint-tablet)) {
+    .hero {
+        padding: var(--padding-hero-tablet);
+        min-height: var(--min-height-hero-tablet);
+    }
+    
+    .hero-title {
+        font-size: var(--tamano-hero-titulo-tablet);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--tamano-hero-subtitulo-tablet);
+    }
+}
+
+/* ✅ MÓVIL */
+@media (max-width: var(--breakpoint-movil)) {
+    .hero {
+        padding: var(--padding-hero-movil);
+        min-height: var(--min-height-hero-movil);
+    }
+    
+    .hero-title {
+        font-size: var(--tamano-hero-titulo-movil);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--tamano-hero-subtitulo-movil);
+        margin-bottom: var(--espacio-md);
+    }
+    
+    .btn-whatsapp {
+        padding: var(--espacio-sm) var(--espacio-md);
+        font-size: var(--tamano-boton-texto-movil);
+    }
+}

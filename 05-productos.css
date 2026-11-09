@@ -1,0 +1,558 @@
+/* ========================================== */
+/* 05. PRODUCTOS (Estilo EPA - 3 columnas) */
+/* ========================================== */
+
+/* ✅ Fondo blanco puro (sin transparencia) */
+.productos {
+    background: var(--blanco);
+    padding: var(--espacio-lg) var(--espacio-md);
+}
+
+/* ✅ Grid de 3 columnas fijas */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ✅ Tarjetas sin bordes visibles (estilo limpio) */
+.producto-card {
+    background: var(--blanco);
+    border: none;
+    border-radius: var(--radio-mediano);
+    padding: var(--espacio-sm) var(--espacio-xs);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transicion-normal), box-shadow var(--transicion-normal);
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover-producto);
+}
+
+/* ✅ NUEVO: Enlace que envuelve la tarjeta (para productos clicables) */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
+/* Imagen del producto */
+.producto-img {
+    width: 100%;
+    height: var(--tamano-imagen-producto-desktop);
+    object-fit: contain;
+    border-radius: var(--radio-mediano);
+    margin-bottom: var(--espacio-sm);
+    background: var(--blanco);
+}
+
+.producto-img-placeholder {
+    width: 100%;
+    height: var(--tamano-imagen-producto-desktop);
+    background: var(--blanco);
+    border-radius: var(--radio-mediano);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    margin-bottom: var(--espacio-sm);
+}
+
+/* ✅ Nombre del producto: permite 2 líneas */
+.producto-nombre {
+    font-size: var(--tamano-nombre-producto);
+    font-weight: 700;
+    color: var(--chocolate);
+    margin-bottom: var(--espacio-xs);
+    line-height: 1.2;
+    min-height: 2.4em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ✅ Descripción OCULTA (solo título visible) */
+.producto-descripcion {
+    display: none;
+}
+
+/* ✅ Precio estilo EPA: símbolo y entero del mismo tamaño, centavos pequeños */
+.producto-precio {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--chocolate);
+    margin-bottom: var(--espacio-sm);
+    line-height: 1;
+}
+
+.producto-precio .simbolo {
+    font-size: var(--tamano-precio-grande);
+    margin-right: 2px;
+}
+
+.producto-precio .entero {
+    font-size: var(--tamano-precio-grande);
+    line-height: 1;
+}
+
+.producto-precio .decimales {
+    font-size: var(--tamano-precio-decimales);
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+/* ✅ Botón "Agregar" compacto (FORZADO a ser del tamaño del texto) */
+.btn-agregar-carrito {
+    background: var(--chocolate);
+    color: var(--blanco);
+    border: none;
+    padding: var(--padding-boton-agregar);
+    border-radius: var(--radio-boton-agregar);
+    font-weight: 600;
+    font-size: var(--tamano-boton-agregar);
+    cursor: pointer;
+    width: auto !important;
+    min-width: 0 !important;
+    align-self: center;
+    transition: all var(--transicion-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-agregar-carrito:hover {
+    background: var(--amarillo);
+    color: var(--chocolate);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover-boton);
+}
+
+/* Botón "Pedir" (por si se usa en otro lado) */
+.btn-pedir {
+    display: inline-block;
+    background: var(--chocolate);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: var(--padding-boton-pedir);
+    border-radius: var(--radio-boton-pedir);
+    font-weight: 600;
+    transition: all var(--transicion-normal);
+}
+
+.btn-pedir:hover {
+    background: var(--amarillo);
+    color: var(--chocolate);
+}
+
+/* ========================================== */
+/* ✅ ANIMACIÓN DE ENTRADA DE CARDS (Scroll) */
+/* ========================================== */
+.producto-card.card-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.producto-card.card-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ========================================== */
+/* ✅ UTILIDADES GENERALES Y PARA EL BUSCADOR */
+/* ========================================== */
+/* ✅ NUEVO: Clase para mensajes de carga sin estilos inline en el HTML */
+.mensaje-carga {
+    text-align: center;
+    color: var(--chocolate);
+    padding: var(--espacio-lg);
+    font-size: var(--tamano-texto);
+}
+
+.producto-card.oculto {
+    display: none !important;
+}
+
+.sin-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--espacio-lg);
+    color: var(--chocolate);
+    font-size: var(--tamano-texto);
+    display: none;
+}
+
+.sin-resultados.visible {
+    display: block;
+}
+
+/* ========================================== */
+/* ✅ CAMBIO DE MONEDA (Activo Grande / Pequeño) */
+/* ========================================== */
+/* Cuando un precio es el principal, se muestra con el estilo EPA */
+.precio-usd.activo-grande,
+.precio-ves.activo-grande {
+    display: inline-flex;
+}
+
+/* Cuando un precio es secundario, se oculta para no saturar la tarjeta */
+.precio-usd.activo-pequeno,
+.precio-ves.activo-pequeno {
+    display: none;
+}
+
+/* ========================================== */
+/* RESPONSIVE: Ajustes para diferentes tamaños */
+/* ========================================== */
+
+/* ✅ Tablets medianas y grandes: MANTIENE 3 columnas hasta 992px */
+@media (max-width: var(--breakpoint-tablet-grande)) {
+    .productos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .producto-img,
+    .producto-img-placeholder {
+        height: var(--tamano-imagen-producto-tablet-grande);
+    }
+    
+    .producto-nombre {
+        font-size: var(--tamano-nombre-producto-tablet);
+    }
+    
+    .producto-precio .simbolo,
+    .producto-precio .entero {
+        font-size: var(--tamano-precio-tablet);
+    }
+    
+    .btn-agregar-carrito {
+        font-size: var(--tamano-boton-agregar-tablet);
+        padding: var(--padding-boton-agregar-tablet);
+    }
+}
+
+/* ✅ Tablets pequeñas: 2 columnas solo cuando sea muy estrecho */
+@media (max-width: var(--breakpoint-tablet-pequena)) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .productos {
+        padding: 30px 15px;
+    }
+    
+    .producto-img,
+    .producto-img-placeholder {
+        height: var(--tamano-imagen-producto-tablet-pequena);
+    }
+}
+
+/* ✅ Celulares: 1 columna (CAMBIO: de breakpoint-movil-pequeno a breakpoint-movil) */
+@media (max-width: var(--breakpoint-movil)) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: var(--espacio-md);
+    }
+    
+    .producto-img,
+    .producto-img-placeholder {
+        height: var(--tamano-imagen-producto-movil);
+    }
+    
+    .producto-precio .entero,
+    .producto-precio .simbolo {
+        font-size: var(--tamano-precio-grande);
+    }
+}
+
+/* ========================================== */
+/* ✅ ESTILOS DE PÁGINA DE DETALLE DE PRODUCTO */
+/* ========================================== */
+.producto-detalle {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 40px 20px;
+    background: #ffffff;
+    position: relative;
+    z-index: 10;
+}
+
+.producto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* ✅ CORRECCIÓN: Imagen en posición normal (ya no sticky, no te sigue al hacer scroll) */
+.producto-imagen {
+    position: relative !important;
+    align-self: start;
+}
+
+.producto-imagen img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    object-fit: cover;
+    display: block;
+}
+
+.producto-info { padding-top: 10px; }
+
+/* ✅ TÍTULO DEL PRODUCTO: Fuente Bowlby, tamaño controlado, centrado */
+.producto-info h1 {
+    font-family: var(--fuente-titulo) !important;
+    font-size: 1.8rem !important;
+    color: var(--chocolate) !important;
+    margin-bottom: 15px;
+    text-align: center !important;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* ✅ PRECIO CENTRADO */
+.producto-precio-detalle {
+    margin: 20px 0 30px 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.precio-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    line-height: 1;
+}
+
+.precio-principal {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--chocolate, #5D4037);
+}
+
+.precio-centavos {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--chocolate, #5D4037);
+    align-self: flex-start;
+    margin-top: 6px;
+}
+
+.precio-secundario {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-top: 0;
+    text-align: center;
+}
+
+.cantidad-selector { margin: 25px 0; }
+
+.cantidad-selector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--chocolate, #5D4037);
+    text-align: center;
+}
+
+.accion-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cantidad-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad-input button {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--rosa, #D46A6A);
+    background: var(--rosa, #D46A6A);
+    color: white;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cantidad-input button:hover {
+    background: var(--chocolate, #5D4037);
+    border-color: var(--chocolate, #5D4037);
+}
+
+.cantidad-input input {
+    width: 70px;
+    height: 45px;
+    text-align: center;
+    border: 2px solid var(--chocolate, #5D4037);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--chocolate, #5D4037);
+}
+
+.btn-agregar-detalle {
+    flex: 1;
+    height: 45px;
+    background: var(--chocolate, #5D4037);
+    color: #FFD700;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-agregar-detalle:hover {
+    background: var(--marron-oscuro, #3E2723);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(93, 64, 55, 0.3);
+}
+
+.producto-descripcion-full {
+    grid-column: 1 / -1;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid #eee;
+    width: 100%;
+    background: #ffffff;
+}
+
+.producto-descripcion-full h2 {
+    font-family: var(--fuente-titulo) !important;
+    color: var(--chocolate, #5D4037);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.producto-descripcion-full p {
+    font-family: var(--fuente-texto) !important;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    max-width: 900px;
+    text-align: left;
+}
+
+.producto-caracteristicas {
+    margin-top: 30px;
+    padding: 25px;
+    background: #fff8f0;
+    border-radius: 10px;
+    max-width: 900px;
+    border-left: 4px solid var(--amarillo, #FFD700);
+}
+
+.producto-caracteristicas h3 {
+    color: var(--chocolate, #5D4037);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-family: var(--fuente-titulo) !important;
+}
+
+.producto-caracteristicas ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px 30px;
+}
+
+.producto-caracteristicas li {
+    padding: 5px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 0.95rem;
+    color: #555;
+    font-family: var(--fuente-texto);
+}
+
+.producto-caracteristicas li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--verde, #28a745);
+    font-weight: bold;
+}
+
+/* ✅ RESPONSIVE DETALLE PRODUCTO */
+@media (max-width: 768px) {
+    .producto-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .producto-imagen {
+        position: relative !important;
+        top: 0;
+    }
+    
+    .producto-imagen img {
+        max-width: 100%;
+    }
+    
+    /* ✅ TÍTULO más pequeño en móvil para que quepa en una línea */
+    .producto-info h1 {
+        font-size: 1.4rem !important;
+    }
+    
+    .precio-principal {
+        font-size: 2.2rem;
+    }
+    
+    .accion-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .cantidad-input {
+        justify-content: center;
+    }
+    
+    .btn-agregar-detalle {
+        width: 100%;
+        height: 50px;
+    }
+
+    .producto-descripcion-full p,
+    .producto-caracteristicas {
+        max-width: 100%;
+    }
+}

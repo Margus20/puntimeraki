@@ -1,0 +1,159 @@
+/* ========================================== */
+/* 08. CÓMO PEDIR */
+/* ========================================== */
+
+.como-pedir {
+    background: var(--blanco);
+    padding: 60px 20px;
+}
+
+/* ✅ FORZADO: 3 columnas en pantallas grandes */
+.pasos-pedir {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.paso-pedir {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ✅ Imágenes de los pasos */
+.paso-imagen {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.paso-imagen:hover {
+    transform: scale(1.05);
+}
+
+.paso-pedir h3 {
+    font-family: 'Bowlby One SC', cursive, sans-serif;
+    font-size: 28px;
+    color: var(--chocolate);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* ✅ Texto de los pasos con fuente Caveat */
+.paso-pedir p {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--chocolate);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ✅ CUADRO DE CONTACTO */
+.contacto-bloque {
+    margin-top: 80px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 30px;
+    background: var(--blanco);
+    border: 3px solid var(--amarillo);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.contacto-bloque .mensaje-final {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--chocolate);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE */
+/* ========================================== */
+
+/* ✅ TABLET GRANDE (992px): Reducir tamaños */
+@media (max-width: 992px) {
+    .paso-imagen {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .paso-pedir h3 {
+        font-size: 26px;
+    }
+    
+    .paso-pedir p {
+        font-size: 26px;
+    }
+}
+
+/* ✅ TABLET (768px): 1 columna */
+@media (max-width: 768px) {
+    .pasos-pedir {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .paso-imagen {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .paso-pedir h3 {
+        font-size: 24px;
+    }
+    
+    .paso-pedir p {
+        font-size: 22px;
+    }
+    
+    .contacto-bloque .mensaje-final {
+        font-size: 22px;
+    }
+}
+
+/* ✅ MÓVIL (480px): Ajustes finos */
+@media (max-width: 480px) {
+    .como-pedir {
+        padding: 40px 15px;
+    }
+    
+    .pasos-pedir {
+        gap: 40px;
+    }
+    
+    .paso-imagen {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .paso-pedir h3 {
+        font-size: 22px;
+    }
+    
+    .paso-pedir p {
+        font-size: 18px;
+    }
+    
+    .contacto-bloque {
+        padding: 30px 20px;
+        margin-top: 60px;
+    }
+    
+    .contacto-bloque .mensaje-final {
+        font-size: 18px;
+    }
+}

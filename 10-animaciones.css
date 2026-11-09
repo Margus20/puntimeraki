@@ -1,0 +1,515 @@
+/* ========================================== */
+/* 10. ANIMACIONES, CARRITO Y BOTONES FLOTANTES */
+/* ========================================== */
+
+/* ========================================== */
+/* ANIMACIONES */
+/* ========================================== */
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes latido-suave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ========================================== */
+/* CARRITO DE COMPRAS - HEADER */
+/* ========================================== */
+.btn-carrito-header {
+    background: var(--blanco);
+    border: 2px solid var(--chocolate);
+    border-radius: var(--radio-botón-grande);
+    padding: var(--padding-carrito-header);
+    font-size: var(--tamano-carrito-header);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    transition: transform var(--transicion-rapida);
+}
+
+.btn-carrito-header:hover {
+    transform: scale(1.05);
+}
+
+.contador-carrito {
+    background: var(--rosa);
+    color: var(--blanco);
+    font-size: var(--tamano-contador-carrito);
+    font-weight: bold;
+    width: var(--tamano-contador-carrito-ancho);
+    height: var(--tamano-contador-carrito-ancho);
+    border-radius: var(--radio-redondo);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================== */
+/* MODAL DEL CARRITO */
+/* ========================================== */
+.modal-carrito {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--fondo-modal-carrito);
+    z-index: var(--z-modal-carrito);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espacio-md);
+}
+
+.modal-carrito.activo {
+    display: flex;
+}
+
+.modal-contenido {
+    background: var(--blanco);
+    width: 100%;
+    max-width: var(--max-width-modal-carrito);
+    border-radius: var(--radio-modal-carrito);
+    overflow: hidden;
+    box-shadow: var(--sombra-modal-carrito);
+    animation: slideUp var(--transicion-normal);
+}
+
+.modal-header {
+    background: var(--amarillo);
+    padding: var(--padding-modal-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    color: var(--chocolate);
+    margin: 0;
+}
+
+.btn-cerrar-modal {
+    background: none;
+    border: none;
+    font-size: var(--tamano-btn-cerrar-modal);
+    color: var(--chocolate);
+    cursor: pointer;
+}
+
+.lista-carrito {
+    max-height: var(--max-height-lista-carrito);
+    overflow-y: auto;
+    padding: var(--espacio-md);
+}
+
+/* ✅ Estado vacío del carrito */
+.carrito-vacio {
+    text-align: center;
+    padding: var(--espacio-lg);
+    color: var(--color-texto-secundario);
+    font-size: var(--tamano-texto);
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espacio-sm) 0;
+    border-bottom: var(--borde-item-carrito);
+    gap: var(--espacio-md);
+}
+
+/* ✅ Imagen del item en el carrito */
+.item-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radio-pequeno);
+    background: var(--blanco);
+    flex-shrink: 0;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.info-item strong {
+    color: var(--chocolate);
+    font-size: var(--tamano-info-item-titulo);
+}
+
+.info-item span {
+    color: var(--color-texto-secundario);
+    font-size: var(--tamano-info-item-precio);
+}
+
+/* ✅ Contenedor de acciones (precio y botón eliminar) */
+.acciones-carrito {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.precio-subtotal {
+    margin: 0;
+    font-weight: bold;
+    color: var(--chocolate);
+    font-size: var(--tamano-info-item-titulo);
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    font-size: var(--tamano-texto-pequeno);
+    cursor: pointer;
+    color: #ff4444;
+    text-decoration: underline;
+    transition: color var(--transicion-rapida);
+}
+
+.btn-eliminar:hover {
+    color: var(--rosa);
+}
+
+.modal-footer {
+    padding: var(--espacio-md);
+    background: var(--color-fondo-hover);
+    border-top: var(--borde-item-carrito);
+}
+
+.total-carrito {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--tamano-total-carrito);
+    font-weight: bold;
+    color: var(--chocolate);
+    margin-bottom: var(--espacio-md);
+}
+
+.btn-whatsapp-modal {
+    width: 100%;
+    background: var(--color-whatsapp);
+    color: var(--blanco);
+    border: none;
+    padding: var(--padding-btn-whatsapp-modal);
+    border-radius: var(--radio-pequeno);
+    font-size: var(--tamano-texto);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background var(--transicion-normal);
+}
+
+.btn-whatsapp-modal:hover {
+    background: var(--color-whatsapp-oscuro);
+}
+
+/* ========================================== */
+/* NOTIFICACIÓN FLOTANTE */
+/* ========================================== */
+.notificacion-flotante {
+    position: fixed;
+    bottom: var(--bottom-notificacion);
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--chocolate);
+    color: var(--blanco);
+    padding: var(--padding-notificacion);
+    border-radius: var(--radio-botón-grande);
+    font-weight: bold;
+    opacity: 0;
+    transition: all var(--transicion-normal);
+    z-index: var(--z-notificacion);
+    pointer-events: none;
+}
+
+.notificacion-flotante.mostrar {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========================================== */
+/* BOTONES FLOTANTES (Menú, Excalibur y WhatsApp) */
+/* ========================================== */
+
+/* ✅ 1. BOTÓN FLOTANTE DEL MENÚ (esquina superior DERECHA) */
+.btn-menu-flotante {
+    position: fixed;
+    top: var(--top-menu-flotante-desktop);
+    right: var(--right-menu-flotante-desktop);
+    width: var(--tamano-menu-flotante-desktop);
+    height: var(--tamano-menu-flotante-desktop);
+    background: var(--chocolate);
+    border: none;
+    border-radius: var(--radio-redondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--sombra-menu-flotante);
+    z-index: var(--z-menu-flotante);
+    cursor: pointer;
+    transition: transform var(--transicion-normal), box-shadow var(--transicion-normal);
+    animation: latido-suave 2.5s ease-in-out infinite;
+}
+
+.btn-menu-flotante:hover {
+    animation: none;
+    transform: scale(1.1);
+    box-shadow: var(--sombra-menu-flotante-hover);
+}
+
+.btn-menu-flotante svg {
+    transition: transform var(--transicion-normal);
+}
+
+.btn-menu-flotante:hover svg {
+    transform: scale(1.1);
+}
+
+/* ✅ 2. BOTÓN FLOTANTE DE EXCALIBUR (esquina inferior DERECHA) */
+.btn-flotante-excalibur {
+    position: fixed;
+    bottom: var(--bottom-excalibur-desktop);
+    right: var(--right-excalibur-desktop);
+    width: var(--tamano-excalibur-desktop);
+    height: var(--tamano-excalibur-desktop);
+    background: var(--color-excalibur);
+    border: 2px solid var(--chocolate);
+    border-radius: var(--radio-redondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--sombra-excalibur);
+    z-index: var(--z-excalibur);
+    transition: transform var(--transicion-normal);
+    cursor: pointer;
+    text-decoration: none;
+    overflow: visible;
+    animation: latido-suave 2.5s ease-in-out infinite;
+}
+
+.btn-flotante-excalibur img {
+    width: var(--tamano-imagen-excalibur-desktop);
+    height: var(--tamano-imagen-excalibur-desktop);
+    object-fit: contain;
+    filter: var(--filtro-excalibur);
+    transition: filter var(--transicion-normal), transform var(--transicion-normal);
+}
+
+.btn-flotante-excalibur:hover {
+    animation: none;
+    transform: scale(1.1);
+}
+
+.btn-flotante-excalibur:hover img {
+    filter: var(--filtro-excalibur-hover);
+    transform: translateY(-2px);
+}
+
+.contador-flotante {
+    position: absolute;
+    top: var(--top-contador-flotante);
+    right: var(--right-contador-flotante);
+    background: var(--rosa);
+    color: var(--blanco);
+    font-size: var(--tamano-contador-flotante);
+    font-weight: bold;
+    width: var(--tamano-contador-flotante-ancho);
+    height: var(--tamano-contador-flotante-ancho);
+    border-radius: var(--radio-redondo);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--blanco);
+}
+
+/* ✅ 3. BOTÓN FLOTANTE DE WHATSAPP (esquina inferior IZQUIERDA) */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: var(--bottom-whatsapp-desktop);
+    left: var(--left-whatsapp-desktop);
+    background: var(--color-whatsapp);
+    width: var(--tamano-whatsapp-desktop);
+    height: var(--tamano-whatsapp-desktop);
+    border-radius: var(--radio-redondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--sombra-whatsapp);
+    z-index: var(--z-whatsapp);
+    transition: transform var(--transicion-normal);
+    text-decoration: none;
+    animation: latido-suave 2.5s ease-in-out infinite;
+}
+
+.whatsapp-flotante svg {
+    width: var(--tamano-icono-whatsapp-desktop);
+    height: var(--tamano-icono-whatsapp-desktop);
+    fill: var(--blanco);
+}
+
+.whatsapp-flotante:hover {
+    animation: none;
+    transform: scale(1.1);
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE: TABLET (768px) - SIN CAMBIOS */
+/* ========================================== */
+@media (max-width: var(--breakpoint-tablet)) {
+    .modal-contenido {
+        max-width: var(--max-width-modal-carrito-tablet);
+    }
+    
+    .btn-menu-flotante {
+        top: var(--top-menu-flotante-tablet);
+        right: var(--right-menu-flotante-tablet);
+        width: var(--tamano-menu-flotante-tablet);
+        height: var(--tamano-menu-flotante-tablet);
+    }
+    
+    .btn-flotante-excalibur {
+        bottom: var(--bottom-excalibur-tablet);
+        right: var(--right-excalibur-tablet);
+        width: var(--tamano-excalibur-tablet);
+        height: var(--tamano-excalibur-tablet);
+    }
+    
+    .btn-flotante-excalibur img {
+        width: var(--tamano-imagen-excalibur-tablet);
+        height: var(--tamano-imagen-excalibur-tablet);
+        filter: var(--filtro-excalibur-tablet);
+    }
+    
+    .btn-flotante-excalibur:hover img {
+        filter: var(--filtro-excalibur-hover-tablet);
+    }
+    
+    .whatsapp-flotante {
+        bottom: var(--bottom-whatsapp-tablet);
+        left: var(--left-whatsapp-tablet);
+        width: var(--tamano-whatsapp-tablet);
+        height: var(--tamano-whatsapp-tablet);
+    }
+    
+    .whatsapp-flotante svg {
+        width: var(--tamano-icono-whatsapp-tablet);
+        height: var(--tamano-icono-whatsapp-tablet);
+    }
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE: MÓVIL (480px) - BOTONES REDUCIDOS */
+/* ========================================== */
+@media (max-width: var(--breakpoint-movil)) {
+    .modal-contenido {
+        max-width: var(--max-width-modal-carrito-movil);
+        margin: var(--espacio-sm);
+    }
+    
+    .modal-header {
+        padding: var(--padding-modal-header-movil);
+    }
+    
+    .btn-whatsapp-modal {
+        padding: var(--padding-btn-whatsapp-modal-movil);
+        font-size: var(--tamano-texto-pequeno);
+    }
+    
+    /* ✅ BOTÓN MENÚ FLOTANTE - Tamaño reducido */
+    .btn-menu-flotante {
+        top: 10px;
+        right: 10px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .btn-menu-flotante svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    /* ✅ BOTÓN EXCALIBUR - Tamaño reducido */
+    .btn-flotante-excalibur {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .btn-flotante-excalibur img {
+        width: 32px;
+        height: 32px;
+        filter: var(--filtro-excalibur-movil);
+    }
+    
+    .btn-flotante-excalibur:hover img {
+        filter: var(--filtro-excalibur-hover-movil);
+        transform: translateY(-2px);
+    }
+    
+    /* ✅ CONTADOR FLOTANTE - Tamaño reducido */
+    .contador-flotante {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+        top: -5px;
+        right: -5px;
+    }
+    
+    /* ✅ BOTÓN WHATSAPP - Tamaño reducido */
+    .whatsapp-flotante {
+        bottom: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-flotante svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* ✅ NOTIFICACIÓN FLOTANTE - Ajustada */
+    .notificacion-flotante {
+        bottom: 80px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ========================================== */
+/* ✅ EFECTO DE NIEVE (Navidad) */
+/* ========================================== */
+.snowflake {
+    position: fixed;
+    top: -50px;
+    left: var(--snow-left, 50vw);
+    font-size: var(--snow-size, 15px);
+    opacity: var(--snow-opacity, 0.8);
+    color: var(--blanco);
+    pointer-events: none;
+    z-index: 5000;
+    animation: caerNieve var(--snow-duration, 3s) linear forwards;
+}
+
+@keyframes caerNieve {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}

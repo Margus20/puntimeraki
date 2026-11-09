@@ -1,0 +1,297 @@
+/* ========================================== */
+/* 11. MENÚ DE NAVEGACIÓN (DESKTOP Y MÓVIL) */
+/* ========================================== */
+.nav-bar {
+    background: transparent;
+    padding: var(--padding-nav-bar-desktop);
+    position: absolute;
+    bottom: var(--bottom-nav-bar-desktop);
+    left: 0;
+    width: 100%;
+    z-index: var(--z-logo);
+    max-width: var(--max-width-nav-bar);
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--gap-nav-list-desktop);
+    max-width: 100%;
+    flex-wrap: nowrap;
+}
+
+.nav-item {
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* ✅ CORRECCIÓN NUCLEAR PARA CHROME EN LOS ENLACES DEL MENÚ */
+.nav-link {
+    display: block;
+    padding: var(--padding-nav-link-desktop);
+    color: var(--chocolate);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--tamano-nav-link-desktop);
+    transition: all var(--transicion-normal);
+    white-space: nowrap;
+    border-radius: var(--radio-boton-agregar);
+    background: var(--color-fondo-nav-link);
+    border: 2px solid var(--rosa);
+    
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 105;
+    cursor: pointer;
+}
+
+#navProductosToggle {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 106;
+    cursor: pointer;
+    border: none;
+    background: var(--color-fondo-nav-link);
+}
+
+.nav-link:hover {
+    background: var(--rosa);
+    color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover-producto);
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--blanco);
+    min-width: var(--min-width-nav-dropdown);
+    box-shadow: var(--sombra-media);
+    border-radius: 0 0 var(--radio-pequeno) var(--radio-pequeno);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    z-index: var(--z-dropdown);
+}
+.nav-item.activo .nav-dropdown { display: block; }
+
+.dropdown-link {
+    display: block;
+    padding: var(--padding-dropdown-link-desktop);
+    color: var(--chocolate);
+    text-decoration: none;
+    font-size: var(--tamano-dropdown-link-desktop);
+    font-weight: 600;
+    transition: background var(--transicion-rapida);
+    border-bottom: 1px solid var(--color-borde-claro);
+}
+.dropdown-link:last-child { border-bottom: none; }
+.dropdown-link:hover { background: var(--amarillo); color: var(--chocolate); }
+
+.nav-item:has(.nav-dropdown) .nav-link::after {
+    content: ' ▼';
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* ========================================== */
+/* ✅ MENÚ HAMBURGUESA (MÓVIL FULL-SCREEN) */
+/* ========================================== */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--padding-menu-overlay);
+    z-index: var(--z-modal);
+    transform: translateX(100%);
+    transition: transform var(--transicion-normal);
+}
+.menu-overlay.active { transform: translateX(0); }
+
+.menu-close {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: var(--tamano-menu-close);
+    cursor: pointer;
+}
+
+.menu-nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--espacio-sm); 
+}
+
+.menu-item {
+    font-family: 'Arial Black', sans-serif;
+    font-size: var(--tamano-menu-item-desktop);
+    font-weight: 900;
+    color: var(--blanco);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: var(--padding-menu-item);
+    border-bottom: var(--borde-menu-item);
+}
+.menu-item:hover { color: var(--amarillo); }
+
+.menu-item-dropdown { width: 100%; }
+
+.menu-toggle-dropdown {
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-family: 'Arial Black', sans-serif;
+    font-size: var(--tamano-menu-item-desktop);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: left;
+    padding: var(--padding-menu-item);
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--borde-menu-item);
+    transition: color var(--transicion-normal);
+}
+.menu-toggle-dropdown:hover { color: var(--amarillo); }
+.menu-toggle-dropdown .dropdown-arrow { 
+    font-size: var(--tamano-dropdown-arrow); 
+    transition: transform var(--transicion-normal); 
+}
+.menu-item-dropdown.activo .dropdown-arrow { transform: rotate(180deg); }
+
+.menu-subnav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transicion-normal);
+    background: var(--color-fondo-menu-subnav);
+}
+.menu-item-dropdown.activo .menu-subnav { max-height: var(--max-height-menu-subnav); }
+
+.menu-subitem {
+    display: block;
+    padding: var(--padding-menu-subitem-desktop);
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: var(--tamano-menu-subitem-desktop);
+    font-weight: 600;
+    border-bottom: var(--color-borde-menu-subitem);
+    transition: background var(--transicion-rapida), color var(--transicion-rapida);
+}
+.menu-subitem:hover { 
+    background: var(--color-fondo-menu-subitem-hover); 
+    color: var(--amarillo); 
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE: MENÚ DE NAVEGACIÓN */
+/* ========================================== */
+@media (max-width: var(--breakpoint-tablet)) {
+    .menu-item { font-size: var(--tamano-menu-item-tablet); }
+    .menu-toggle-dropdown { font-size: var(--tamano-menu-item-tablet); }
+    .menu-subitem { 
+        font-size: var(--tamano-menu-subitem-tablet); 
+        padding: var(--padding-menu-subitem-tablet); 
+    }
+    
+    .nav-bar { 
+        padding: var(--padding-nav-bar-tablet); 
+        bottom: var(--bottom-nav-bar-tablet); 
+        max-width: 100%; 
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-bar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .nav-list { 
+        gap: var(--gap-nav-list-tablet); 
+        flex-wrap: nowrap; 
+        width: max-content; 
+    }
+    .nav-link { 
+        padding: var(--padding-nav-link-tablet); 
+        font-size: var(--tamano-nav-link-tablet); 
+        white-space: nowrap; 
+    }
+    .dropdown-link { 
+        padding: var(--padding-dropdown-link-tablet); 
+        font-size: var(--tamano-dropdown-link-tablet); 
+    }
+}
+
+@media (max-width: var(--breakpoint-movil)) {
+    .nav-bar { 
+        padding: var(--padding-nav-bar-movil); 
+        bottom: var(--bottom-nav-bar-movil); 
+        max-width: 100%; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-bar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .nav-list { 
+        gap: var(--gap-nav-list-movil); 
+        flex-wrap: nowrap; 
+        width: max-content; 
+    }
+    .nav-link { 
+        padding: var(--padding-nav-link-movil); 
+        font-size: var(--tamano-nav-link-movil); 
+        white-space: nowrap; 
+    }
+    .nav-dropdown { min-width: var(--min-width-nav-dropdown-movil); }
+    .dropdown-link { 
+        padding: var(--padding-dropdown-link-movil); 
+        font-size: var(--tamano-dropdown-link-movil); 
+    }
+}
+
+/* ========================================== */
+/* ✅ BOTONES FLOTANTES POR ENCIMA DEL HEADER */
+/* ========================================== */
+/* El header tiene z-index: 1000, así que estos botones deben tener z-index mayor */
+
+.btn-menu-flotante,
+.btn-flotante-menu {
+    z-index: 1100 !important;
+    position: fixed !important;
+}
+
+.btn-flotante-excalibur,
+.excalibur-flotante {
+    z-index: 1100 !important;
+    position: fixed !important;
+}
+
+.whatsapp-flotante,
+.btn-flotante-whatsapp {
+    z-index: 1100 !important;
+    position: fixed !important;
+}
+
+/* ✅ El menú overlay (pantalla completa) debe estar por encima de todo */
+.menu-overlay {
+    z-index: 1200 !important;
+}

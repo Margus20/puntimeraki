@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contáctanos para hacer tu pedido - SLAKIDOM">
+    <title>Contacto - SLAKIDOM</title>
+    
+    <link rel="icon" type="image/png" href="img/slaky_cuadrado.jpg">
+    
+    <!-- ✅ FUENTES DE GOOGLE (AGREGADO) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ✅ ESTILOS ESPECÍFICOS PARA TÍTULOS DE PASOS -->
+    <style>
+        .section-title,
+        .paso-pedir h3 {
+            font-family: var(--fuente-titulo) !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+        }
+        
+        .section-subtitle,
+        .paso-pedir p,
+        .mensaje-final {
+            font-family: var(--fuente-subtitulo) !important;
+            font-weight: 700 !important;
+        }
+    </style>
+    
+    <!-- CSS MODULAR (Actualizado con la nueva estructura) -->
+    <link rel="stylesheet" href="css/01-variables.css">
+    <link rel="stylesheet" href="css/02-base.css">
+    <link rel="stylesheet" href="css/03-header.css">
+    <link rel="stylesheet" href="css/11-menu.css">
+    <link rel="stylesheet" href="css/08-como-pedir.css">
+    <link rel="stylesheet" href="css/09-footer.css">
+    <link rel="stylesheet" href="css/10-animaciones.css">
+</head>
+<body>
+    
+    <!-- ✅ AQUÍ SE INYECTARÁ EL HEADER -->
+    <div id="header-container"></div>
+    
+    <main>
+        <!-- SECCIÓN CÓMO PEDIR / CONTACTO -->
+        <section class="como-pedir">
+            <h2 class="section-title">¿Cómo Pedir?</h2>
+            <p class="section-subtitle">Es muy fácil, sigue estos 3 pasos</p>
+            
+            <div class="pasos-pedir">
+                <!-- ✅ Paso 1: Imagen ELIGE -->
+                <div class="paso-pedir">
+                    <img src="img/elige.jpg" alt="Elige tus productos" class="paso-imagen">
+                    <h3>Elige</h3>
+                    <p>Tus galletas o mermeladas favoritas</p>
+                </div>
+                
+                <!-- ✅ Paso 2: Imagen ESCRIBE -->
+                <div class="paso-pedir">
+                    <img src="img/escribe.jpg" alt="Escríbenos por WhatsApp" class="paso-imagen">
+                    <h3>Escríbenos</h3>
+                    <p>Al WhatsApp<br>0412-2879803</p>
+                </div>
+                
+                <!-- ✅ Paso 3: Imagen RECIBE -->
+                <div class="paso-pedir">
+                    <img src="img/recibe.jpg" alt="Recibe tu pedido" class="paso-imagen">
+                    <h3>Recibe</h3>
+                    <p>Tu pedido en Caracas</p>
+                </div>
+            </div>
+            
+            <!-- ✅ CUADRO DE CONTACTO: SOLO MENSAJE FINAL -->
+            <div class="contacto-bloque">
+                <p class="mensaje-final">¡Estamos listos para atenderte!</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ✅ AQUÍ SE INYECTARÁ EL FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- ✅ SCRIPT PRINCIPAL -->
+    <script type="module" src="js/app.js"></script>
+    
+</body>
+</html>

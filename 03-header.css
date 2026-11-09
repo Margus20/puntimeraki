@@ -1,0 +1,572 @@
+/* ========================================== */
+/* 03. HEADER (BARRA SUPERIOR, LOGO Y BUSCADOR) */
+/* ========================================== */
+.header {
+    background-color: var(--amarillo);
+    padding: 0 var(--espacio-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-media);
+    height: 260px;
+    overflow: visible !important;
+    background-image: url('../img/navidad.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 220, 100, 0.85);
+    z-index: 0;
+}
+
+.header-botones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--espacio-sm) var(--espacio-sm);
+    z-index: var(--z-header-botones);
+}
+
+.header-botones button,
+.header-botones .selector-moneda,
+.header-botones .ubicacion,
+.header-botones .buscador-header,
+.header-botones .buscador-input,
+.header-botones .buscador-btn {
+    pointer-events: auto;
+}
+
+/* ========================================== */
+/* SELECTOR DE MONEDA */
+/* ========================================== */
+.selector-moneda {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: var(--tamano-texto-selector);
+    font-weight: 700;
+    color: var(--chocolate);
+    padding: var(--padding-selector-desktop);
+    border-radius: var(--radio-pequeno);
+    transition: background var(--transicion-rapida);
+    position: relative;
+    margin-top: var(--margin-top-selector-desktop);
+    z-index: 200;
+    pointer-events: auto !important;
+}
+
+.selector-moneda:hover { background: rgba(255, 255, 255, 0.4); }
+.selector-moneda .bandera { font-size: 1.2rem; }
+.selector-moneda .moneda-actual { font-weight: 700; font-size: var(--tamano-texto-selector); }
+.selector-moneda .flecha { font-size: 0.85rem; transition: transform var(--transicion-normal); }
+.selector-moneda.activo .flecha { transform: rotate(180deg); }
+
+.dropdown-monedas {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--blanco);
+    border: 2px solid var(--chocolate);
+    border-radius: var(--radio-pequeno);
+    box-shadow: var(--sombra-media);
+    min-width: 160px;
+    display: none;
+    z-index: 10001;
+    margin-top: var(--margin-top-dropdown-monedas);
+    overflow: visible;
+    pointer-events: auto !important;
+}
+.dropdown-monedas.activo { display: block; }
+
+.opcion-moneda {
+    padding: var(--espacio-sm) var(--espacio-md);
+    cursor: pointer;
+    transition: background var(--transicion-rapida);
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    font-size: var(--tamano-texto-pequeno);
+    color: var(--chocolate);
+}
+.opcion-moneda:hover { background: var(--durazno); }
+.opcion-moneda.seleccionada { background: var(--amarillo); font-weight: bold; }
+
+/* ========================================== */
+/* UBICACIÓN */
+/* ========================================== */
+.ubicacion {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-ubicacion-desktop);
+    font-size: var(--tamano-texto-ubicacion);
+    font-weight: 700;
+    color: var(--chocolate);
+    cursor: pointer;
+    padding: var(--padding-ubicacion-desktop);
+    border-radius: var(--radio-pequeno);
+    transition: background var(--transicion-rapida);
+    margin-top: var(--margin-top-ubicacion-desktop);
+    margin-left: 0;
+}
+.ubicacion:hover { background: rgba(255, 255, 255, 0.4); }
+
+.ubicacion .icono-ubicacion {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+.ubicacion .icono-ubicacion svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* ========================================== */
+/* LOGO */
+/* ========================================== */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: var(--top-logo-desktop);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-logo);
+}
+.logo-link { display: inline-block; text-decoration: none; transition: transform var(--transicion-normal); }
+.logo-link:hover { transform: scale(1.05); }
+.logo {
+    height: var(--altura-logo-desktop);
+    width: auto;
+    display: block;
+    cursor: pointer;
+    filter: drop-shadow(var(--sombra-logo));
+}
+
+/* ========================================== */
+/* BUSCADOR */
+/* ========================================== */
+.buscador-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--blanco);
+    border-radius: var(--radio-buscador);
+    padding: 4px;
+    box-shadow: var(--sombra-suave);
+    max-width: var(--tamano-buscador-desktop);
+    width: 100%;
+    margin-top: var(--margin-top-buscador-desktop);
+    pointer-events: auto !important;
+    z-index: var(--z-buscador) !important;
+    position: relative;
+}
+
+.buscador-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: var(--padding-buscador-input-desktop);
+    font-size: var(--tamano-buscador-input-desktop);
+    background: transparent;
+    color: var(--chocolate);
+    border-radius: var(--radio-buscador) 0 0 var(--radio-buscador);
+    min-width: 0;
+    touch-action: auto !important;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto !important;
+    z-index: 111 !important;
+    position: relative !important;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: text;
+    -webkit-user-select: text !important;
+    user-select: text !important;
+}
+.buscador-input::placeholder { color: var(--color-texto-placeholder); font-style: italic; }
+
+.buscador-btn {
+    background: var(--rosa);
+    border: none;
+    border-radius: var(--radio-redondo);
+    width: var(--tamano-boton-buscador-desktop);
+    height: var(--tamano-boton-buscador-desktop);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--blanco);
+    transition: all var(--transicion-normal);
+    flex-shrink: 0;
+}
+.buscador-btn:hover { background: var(--chocolate); transform: scale(1.05); }
+.buscador-btn svg { width: 18px; height: 18px; }
+
+/* ========================================== */
+/* DROPDOWN DEL BUSCADOR */
+/* ========================================== */
+.buscador-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--blanco);
+    border: 1px solid var(--color-borde-medio);
+    border-radius: var(--radio-dropdown);
+    box-shadow: var(--sombra-dropdown);
+    width: var(--ancho-dropdown-buscador-desktop);
+    max-height: var(--alto-max-dropdown-buscador-desktop);
+    overflow-y: auto;
+    z-index: 10000;
+    display: none;
+    margin-top: var(--margin-top-dropdown-buscador);
+    pointer-events: auto !important;
+}
+.buscador-dropdown.activo { display: block; }
+
+.resultado-item {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-resultado-item-desktop);
+    padding: var(--padding-resultado-item-desktop);
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-borde-claro);
+    transition: background var(--transicion-rapida);
+}
+.resultado-item:last-child { border-bottom: none; }
+.resultado-item:hover { background: var(--color-fondo-hover); }
+
+.resultado-item img {
+    width: var(--tamano-imagen-resultado-desktop);
+    height: var(--tamano-imagen-resultado-desktop);
+    object-fit: cover;
+    border-radius: var(--radio-pequeno);
+    border: 1px solid var(--color-borde-claro);
+    flex-shrink: 0;
+}
+.resultado-item span {
+    font-family: var(--fuente-texto);
+    font-size: var(--tamano-texto-resultado);
+    color: var(--color-chocolate-oscuro);
+    font-weight: 600;
+    line-height: 1.2;
+}
+.resultado-vacio {
+    padding: var(--padding-resultado-vacio);
+    text-align: center;
+    color: var(--color-texto-secundario);
+    font-size: var(--tamano-texto-vacio);
+    font-style: italic;
+}
+
+/* ========================================== */
+/* TASA BCV */
+/* ========================================== */
+.tasa-bcv-info {
+    font-size: 0.8rem;
+    color: var(--chocolate);
+    font-weight: 700;
+    padding: 2px 12px 8px 12px;
+    text-align: center;
+    display: block;
+}
+
+/* ========================================== */
+/* MENÚ + BUSCADOR (Fila inferior) */
+/* ========================================== */
+.nav-buscador-wrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--espacio-md);
+    z-index: 105;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+.nav-buscador-wrapper .nav-bar {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 10px;
+    min-width: 0;
+    max-width: calc(100% - 250px);
+}
+
+.nav-buscador-wrapper .nav-list {
+    gap: var(--gap-nav-list-fluid);
+}
+
+.nav-buscador-wrapper .nav-link {
+    font-size: var(--tamano-nav-link-fluid);
+    padding: var(--padding-nav-link-fluid);
+    white-space: nowrap;
+}
+
+.nav-buscador-wrapper .buscador-header {
+    flex-shrink: 0;
+    width: auto;
+    max-width: 240px !important;
+    min-width: 180px;
+    margin-top: 0 !important;
+    margin-left: auto;
+}
+
+.nav-buscador-wrapper .buscador-input {
+    max-width: 160px;
+    min-width: 100px;
+}
+
+.btn-productos {
+    border: 2px solid var(--rosa, #ff6b81) !important;
+    border-radius: var(--radio-mediano, 8px);
+    transition: var(--transicion-rapida, 0.3s ease);
+}
+
+.btn-productos:hover {
+    background-color: var(--color-fondo-hover, rgba(255, 107, 129, 0.1));
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE: TABLET (768px) */
+/* ========================================== */
+@media (max-width: var(--breakpoint-tablet)) {
+    .header { height: var(--altura-header-tablet); }
+    .logo { height: var(--altura-logo-tablet); }
+    .logo-container { top: var(--top-logo-tablet); }
+    .selector-moneda { font-size: var(--tamano-texto-selector-hover); padding: var(--padding-selector-tablet); margin-top: var(--margin-top-selector-tablet); }
+    .selector-moneda .bandera { font-size: 1.1rem; }
+    .selector-moneda .moneda-actual { font-size: var(--tamano-texto-selector-hover); }
+    .ubicacion { font-size: var(--tamano-texto-ubicacion-tablet); padding: var(--padding-ubicacion-tablet); margin-top: var(--margin-top-ubicacion-tablet); }
+    
+    .nav-buscador-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--espacio-sm, 0.5rem);
+        padding-bottom: var(--espacio-sm, 0.5rem);
+    }
+    .nav-buscador-wrapper .buscador-header {
+        max-width: 260px !important;
+        width: auto;
+        margin-left: auto;
+    }
+
+    .buscador-input { font-size: var(--tamano-buscador-input-tablet); padding: var(--padding-buscador-input-tablet); }
+    .buscador-btn { width: var(--tamano-boton-buscador-tablet); height: var(--tamano-boton-buscador-tablet); }
+    .buscador-btn svg { width: 16px; height: 16px; }
+    
+    .buscador-dropdown { width: var(--ancho-dropdown-buscador-tablet); max-height: var(--alto-max-dropdown-buscador-tablet); }
+    .resultado-item img { width: var(--tamano-imagen-resultado-tablet); height: var(--tamano-imagen-resultado-tablet); }
+    .resultado-item span { font-size: var(--tamano-texto-selector-hover); }
+    .tasa-bcv-info { font-size: 0.75rem; padding: 2px 8px 6px 8px; }
+}
+
+/* ========================================== */
+/* ✅ RESPONSIVE: MÓVIL (767px) - LOGO GRANDE + FUNCIONAL */
+/* ========================================== */
+@media (max-width: 767px) {
+    /* Header: altura aumentada para acomodar logo grande */
+    .header { 
+        height: 280px;
+        min-height: 280px;
+        padding: 0;
+    }
+    
+    /* ✅ FIX CRÍTICO: header-botones NO bloquea clics en elementos de abajo */
+    .header-botones {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 8px;
+        gap: 0;
+        pointer-events: none !important;
+        z-index: 5 !important;
+    }
+    
+    /* ✅ Reactivar pointer-events solo en los elementos clicables dentro de header-botones */
+    .header-botones .selector-moneda,
+    .header-botones .menu-flotante,
+    .header-botones button {
+        pointer-events: auto !important;
+    }
+    
+    /* ✅ Selector moneda: IZQUIERDA SUPERIOR con área de clic más grande y z-index alto */
+    .selector-moneda {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        margin-top: 0;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        z-index: 200;
+        pointer-events: auto !important;
+    }
+    
+    /* Ocultar bandera (emoji 🇻🇪) en móvil */
+    .selector-moneda .bandera {
+        display: none !important;
+    }
+    
+    /* Ocultar texto "Venezuela ($)" en móvil */
+    .selector-moneda .moneda-actual {
+        display: none !important;
+    }
+    
+    /* Mantener la flecha visible y más grande */
+    .selector-moneda .flecha {
+        font-size: 1.5rem;
+        display: block;
+        color: var(--chocolate);
+        font-weight: bold;
+    }
+    
+    /* ✅ Logo: MUCHO MÁS GRANDE (160px) y centrado */
+    .logo-container {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        z-index: 10;
+    }
+    
+    .logo {
+        height: 160px;
+    }
+    
+    /* Ocultar ubicación completa */
+    .ubicacion {
+        display: none !important;
+    }
+    
+    /* Ocultar tasa BCV */
+    .tasa-bcv-info {
+        display: none !important;
+    }
+    
+    /* ✅ Nav-buscador-wrapper: ABAJO CENTRADO con z-index ALTO */
+    .nav-buscador-wrapper {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        justify-content: center !important;
+        align-items: center;
+        padding: 0 10px !important;
+        z-index: 120 !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Ocultar SOLO el menú horizontal */
+    .nav-buscador-wrapper .nav-bar {
+        display: none !important;
+    }
+    
+    /* ✅ Buscador funcional con lupa pegada a la derecha */
+    .nav-buscador-wrapper .buscador-header {
+        max-width: 92% !important;
+        width: 92% !important;
+        margin: 0 auto !important;
+        padding: 4px !important;
+        overflow: visible !important;
+        display: flex !important;
+        align-items: center !important;
+        pointer-events: auto !important;
+    }
+    
+    /* ✅ Input ocupa todo el espacio disponible - FUNCIONAL PARA ESCRIBIR */
+    .nav-buscador-wrapper .buscador-input,
+    .buscador-input {
+        flex: 1 !important;
+        min-width: 0 !important;
+        font-size: 0.85rem;
+        padding: 10px 14px !important;
+        pointer-events: auto !important;
+        touch-action: auto !important;
+        -webkit-user-select: text !important;
+        user-select: text !important;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    .buscador-input::placeholder {
+        font-size: 0.75rem;
+    }
+    
+    /* ✅ Botón de lupa pegado a la derecha */
+    .nav-buscador-wrapper .buscador-btn,
+    .buscador-btn {
+        width: 36px !important;
+        height: 36px !important;
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+        pointer-events: auto !important;
+    }
+    
+    .buscador-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* ✅ Dropdown del buscador con z-index muy alto */
+    .buscador-dropdown {
+        width: 92%;
+        max-width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        z-index: 10000 !important;
+        pointer-events: auto !important;
+    }
+    
+    .resultado-item {
+        padding: 5px 7px;
+        gap: 5px;
+    }
+    
+    .resultado-item img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .resultado-item span {
+        font-size: 0.7rem;
+    }
+    
+    /* ✅ Dropdown de monedas con z-index más alto que el del buscador */
+    .dropdown-monedas {
+        z-index: 10001 !important;
+        pointer-events: auto !important;
+    }
+}
