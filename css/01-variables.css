@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playball&family=Caveat:wght@400;500;600;700&display=swap');
+
 /* ========================================== */
 /* 01. VARIABLES Y CONFIGURACIÓN GLOBAL */
 /* ========================================== */
@@ -6,11 +8,11 @@
     /* ========================================== */
     /* 🎨 COLORES PRINCIPALES */
     /* ========================================== */
-    --rosa: #D95B89;
-    --amarillo: #F2D272;
-    --naranja: #F2AC29;
-    --durazno: #F2C777;
-    --chocolate: #8C2F0D;
+    --rosa: #F191F2;
+    --amarillo: #F2BC79;
+    --naranja: #BF6F41;
+    --durazno: #F2BC79;
+    --chocolate: #180326;
     --blanco: #FFFFFF;
     --verde: #28a745;
     --gris-claro: #f5f5f5;
@@ -23,16 +25,16 @@
     --color-fondo-hover: #f9f9f9;
     --color-texto-placeholder: #B0B0B0;
     --color-texto-secundario: #888;
-    --color-chocolate-oscuro: #5D4037;
+    --color-chocolate-oscuro: #472C59;
     
     /* ✅ COLOR DE MARCA EXTERNA (WhatsApp) */
     --color-whatsapp: #25D366;
     --color-whatsapp-oscuro: #128C7E;
-    --color-excalibur: #F2CB05;
+    --color-excalibur: #F2BC79;
     --fondo-modal-carrito: rgba(0, 0, 0, 0.6);
     
     /* ✅ COLORES DE MENÚ */
-    --color-fondo-nav-link: rgba(255, 192, 203, 0.3);
+    --color-fondo-nav-link: rgba(241, 145, 242, 0.3);
     --color-fondo-menu-subnav: rgba(0,0,0,0.2);
     --color-fondo-menu-subitem-hover: rgba(255,255,255,0.1);
     --color-borde-menu-subitem: 1px solid rgba(255,255,255,0.05);
@@ -40,7 +42,7 @@
     /* ========================================== */
     /* 📝 TIPOGRAFÍA */
     /* ========================================== */
-    --fuente-titulo: 'Bowlby One SC', cursive, sans-serif;
+    --fuente-titulo: 'Playball', cursive;
     --fuente-subtitulo: 'Caveat', cursive;
     --fuente-texto: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
@@ -140,7 +142,7 @@
     --tamano-nav-link-desktop: 0.85rem;
     --tamano-nav-link-tablet: 0.8rem;
     --tamano-nav-link-movil: 0.75rem;
-    --tamano-nav-link-fluid: clamp(0.7rem, 1.2vw, 0.95rem); /* NUEVO: Texto líquido para botones del menú */
+    --tamano-nav-link-fluid: clamp(0.7rem, 1.2vw, 0.95rem);
     --tamano-dropdown-link-desktop: 0.95rem;
     --tamano-dropdown-link-tablet: 0.85rem;
     --tamano-dropdown-link-movil: 0.8rem;
@@ -187,7 +189,7 @@
     --gap-nav-list-desktop: 6px;
     --gap-nav-list-tablet: 5px;
     --gap-nav-list-movil: 4px;
-    --gap-nav-list-fluid: clamp(4px, 1vw, 10px); /* NUEVO: Espacio líquido entre botones del menú */
+    --gap-nav-list-fluid: clamp(4px, 1vw, 10px);
 
     /* ✅ GAP DE HEADER */
     --gap-ubicacion-desktop: 5px;
@@ -244,7 +246,7 @@
     --padding-nav-link-desktop: 6px 14px;
     --padding-nav-link-tablet: 6px 12px;
     --padding-nav-link-movil: 5px 10px;
-    --padding-nav-link-fluid: clamp(4px, 0.8vw, 8px) clamp(8px, 1.5vw, 14px); /* NUEVO: Padding líquido para botones del menú */
+    --padding-nav-link-fluid: clamp(4px, 0.8vw, 8px) clamp(8px, 1.5vw, 14px);
     --padding-dropdown-link-desktop: 12px 20px;
     --padding-dropdown-link-tablet: 10px 15px;
     --padding-dropdown-link-movil: 10px 12px;
@@ -299,11 +301,11 @@
     
     /* ✅ SOMBRAS ADICIONALES */
     --sombra-dropdown: 0 8px 20px rgba(0,0,0,0.15);
-    --sombra-hover-producto: 0 8px 25px rgba(140, 47, 13, 0.15);
-    --sombra-hover-boton: 0 4px 12px rgba(140, 47, 13, 0.3);
+    --sombra-hover-producto: 0 8px 25px rgba(24, 3, 38, 0.15);
+    --sombra-hover-boton: 0 4px 12px rgba(24, 3, 38, 0.3);
     --sombra-modal-carrito: 0 10px 30px rgba(0,0,0,0.3);
-    --sombra-menu-flotante: 0 4px 15px rgba(140, 47, 13, 0.4);
-    --sombra-menu-flotante-hover: 0 6px 20px rgba(140, 47, 13, 0.5);
+    --sombra-menu-flotante: 0 4px 15px rgba(24, 3, 38, 0.4);
+    --sombra-menu-flotante-hover: 0 6px 20px rgba(24, 3, 38, 0.5);
     --sombra-excalibur: 0 4px 15px rgba(0,0,0,0.3);
     --sombra-whatsapp: 0 4px 15px rgba(37, 211, 102, 0.4);
     
