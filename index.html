@@ -3,51 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Galletas artesanales SLAKIDOM - Hechas con amor en Caracas">
-    <title>Galletas - SLAKIDOM</title>
+    <meta name="description" content="Manualidades artesanales Puntimeraki - Arte en cada detalle, hechas con amor en Caracas">
+    <title>Puntimeraki - Manualidades: Arte en cada detalle</title>
     
-    <link rel="icon" type="image/png" href="../img/slaky_cuadrado.jpg">
+    <link rel="icon" type="image/png" href="img/navidad_logo.png">
     
-    <!-- ✅ FUENTES DE GOOGLE (AGREGADO) -->
+    <!-- ✅ FUENTES DE GOOGLE (Actualizado con Playball) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- CSS MODULAR (Actualizado con la nueva estructura) -->
-    <link rel="stylesheet" href="../css/01-variables.css">
-    <link rel="stylesheet" href="../css/02-base.css">
-    <link rel="stylesheet" href="../css/03-header.css">
-    <link rel="stylesheet" href="../css/11-menu.css">
-    <link rel="stylesheet" href="../css/04-hero.css">
-    <link rel="stylesheet" href="../css/05-productos.css">
-    <link rel="stylesheet" href="../css/06-proceso.css">
-    <link rel="stylesheet" href="../css/07-sobre-nosotros.css">
-    <link rel="stylesheet" href="../css/08-como-pedir.css">
-    <link rel="stylesheet" href="../css/09-footer.css">
-    <link rel="stylesheet" href="../css/10-animaciones.css">
+    <!-- ✅ ETIQUETAS PARA REDES SOCIALES (Open Graph) - Actualizadas para Puntimeraki -->
+    <meta property="og:title" content="Puntimeraki - Manualidades: Arte en cada detalle">
+    <meta property="og:description" content="Hechas con amor en Caracas. Descubre nuestras creaciones artesanales únicas.">
+    <meta property="og:image" content="https://margus20.github.io/puntimeraki/img/navidad_logo.png">
+    <meta property="og:url" content="https://margus20.github.io/puntimeraki/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Puntimeraki">
+    
+    <!-- Etiquetas para Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Puntimeraki - Manualidades: Arte en cada detalle">
+    <meta name="twitter:description" content="Hechas con amor en Caracas. Descubre nuestras creaciones artesanales únicas.">
+    <meta name="twitter:image" content="https://margus20.github.io/puntimeraki/img/navidad_logo.png">
+    
+    <!-- CSS MODULAR (Ordenado secuencialmente del 01 al 12) -->
+    <link rel="stylesheet" href="css/01-variables.css">
+    <link rel="stylesheet" href="css/02-base.css">
+    <link rel="stylesheet" href="css/03-header.css">
+    <link rel="stylesheet" href="css/04-hero.css">
+    <link rel="stylesheet" href="css/05-productos.css">
+    <link rel="stylesheet" href="css/06-proceso.css">
+    <link rel="stylesheet" href="css/07-sobre-nosotros.css">
+    <link rel="stylesheet" href="css/08-como-pedir.css">
+    <link rel="stylesheet" href="css/09-footer.css">
+    <link rel="stylesheet" href="css/10-animaciones.css">
+    <link rel="stylesheet" href="css/11-menu.css">
+    <link rel="stylesheet" href="css/12-slider.css">
+
+    <!-- ✅ DETECTOR DE ERRORES GLOBAL -->
+    <script>
+        window.onerror = function(message, source, lineno, colno, error) {
+            document.body.innerHTML = '<div style="background:#d32f2f; color:white; padding:30px; font-family:monospace; font-size:16px; line-height:1.5;">' +
+                '<h2>⚠️ ERROR DETECTADO EN EL SISTEMA</h2>' +
+                '<p><strong>Mensaje:</strong> ' + message + '</p>' +
+                '<p><strong>Archivo:</strong> ' + source + '</p>' +
+                '<p><strong>Línea:</strong> ' + lineno + '</p>' +
+                '<hr><p style="font-size:14px;">Por favor, toma una captura de esta pantalla y envíala para corregir ese archivo específico.</p></div>';
+            return true; 
+        };
+    </script>
 </head>
 <body>
     
-    <!-- ✅ AQUÍ SE INYECTARÁ EL HEADER -->
+    <!-- Aquí se inyectará el Header automáticamente -->
     <div id="header-container"></div>
     
     <main>
-        <!-- SECCIÓN GALLETAS -->
-        <section id="productos" class="productos">
-            <h2 class="section-title">Nuestras Galletas</h2>
-            <p class="section-subtitle">Hechas con amor y los mejores ingredientes</p>
+        <!-- Slider de Imágenes Automático (5 slides) -->
+        <section class="hero-slider">
+            <div class="slider-container">
+                <!-- Slide 1: Logo Principal -->
+                <div class="slide active">
+                    <img src="img/navidad_logo.png" alt="Logo Puntimeraki">
+                </div>
+                <!-- Slide 2: Imagen Horizontal -->
+                <div class="slide">
+                    <img src="img/horizontal.jpg" alt="Arte en cada detalle">
+                </div>
+                <!-- Slide 3: Promoción 1 -->
+                <div class="slide">
+                    <img src="img/promocion1.jpg" alt="Promoción especial Puntimeraki">
+                </div>
+                <!-- Slide 4: Promoción 2 -->
+                <div class="slide">
+                    <img src="img/promocion2.jpg" alt="Nuestras creaciones artesanales">
+                </div>
+                <!-- Slide 5: WhatsApp -->
+                <div class="slide">
+                    <img src="img/whatsapp_horizontal.jpg" alt="Contáctanos por WhatsApp">
+                </div>
+            </div>
             
-            <div class="productos-grid" id="productos-grid">
-                <p class="mensaje-carga">Cargando galletas...</p>
+            <!-- Indicadores (Puntitos) - 5 slides, 5 puntitos -->
+            <div class="slider-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+                <span class="dot" data-index="4"></span>
             </div>
         </section>
     </main>
     
-    <!-- ✅ AQUÍ SE INYECTARÁ EL FOOTER Y ELEMENTOS GLOBALES -->
+    <!-- Aquí se inyectará el Footer automáticamente -->
     <div id="footer-container"></div>
 
-    <!-- ✅ SCRIPT PRINCIPAL DE LA APLICACIÓN (Nota el ../) -->
-    <script type="module" src="../js/app.js"></script>
+    <!-- Único script: El cerebro de la aplicación -->
+    <script type="module" src="js/app.js"></script>
     
 </body>
 </html>
