@@ -8,14 +8,19 @@
     /* ========================================== */
     /* 🎨 COLORES PRINCIPALES (Paleta Puntimeraki) */
     /* ========================================== */
-    --rosa: #F191F2;        /* Rosa vibrante - Color principal */
-    --morado-oscuro: #180326;   /* Chocolate/Morado muy oscuro - Fondo principal */
-    --morado-medio: #472C59;    /* Morado medio - Elementos secundarios */
-    --amarillo: #F2BC79;        /* Amarillo/Dorado - Acentos y detalles */
-    --naranja: #BF6F41;         /* Naranja/Tierra - Detalles cálidos */
+    --rosa: #F191F2;              /* Rosa vibrante - Color principal del header */
+    --morado-oscuro: #180326;     /* Morado muy oscuro - Footer, fondo de botones y menú */
+    --morado-medio: #472C59;      /* Morado medio - Elementos secundarios y sombras */
+    --amarillo: #F2BC79;          /* Amarillo/Dorado - Acentos, textos destacados y detalles */
+    --naranja: #BF6F41;           /* Naranja/Tierra - Detalles cálidos */
     
+    /* ✅ ALIAS DE COMPATIBILIDAD (Para que ningún archivo CSS existente se rompa) */
+    --chocolate: #180326;         /* Alias de --morado-oscuro */
+    --durazno: #F2BC79;           /* Alias de --amarillo */
+    --rosa-claro: #F191F2;        /* Alias de --rosa */
+    --color-chocolate-oscuro: #472C59; /* Alias de --morado-medio */
+
     /* ✅ COLORES ADICIONALES DE LA PALETA */
-    --rosa-claro: #F191F2;      /* Rosa principal */
     --blanco: #FFFFFF;
     --verde: #28a745;
     --gris-claro: #f5f5f5;
@@ -28,7 +33,6 @@
     --color-fondo-hover: #f9f9f9;
     --color-texto-placeholder: #B0B0B0;
     --color-texto-secundario: #888;
-    --color-chocolate-oscuro: #472C59;
     
     /* ✅ COLOR DE MARCA EXTERNA (WhatsApp) */
     --color-whatsapp: #25D366;
