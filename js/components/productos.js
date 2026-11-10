@@ -40,7 +40,8 @@ export function renderizarProductos(listaProductos, tasaCambio) {
         const precioEnBolivares = producto.precio * tasaCambio;
         const precioVESRedondeado = redondearBolivares(precioEnBolivares);
         
-        const imagenSrc = producto.imagen ? `${imgBasePath}${producto.imagen}` : null;
+        // ✅ AJUSTE DE SEGURIDAD 1: Si la imagen ya empieza con '/', úsala tal cual. Si no, agrégale el '../'
+        const imagenSrc = producto.imagen ? (producto.imagen.startsWith('/') ? producto.imagen : `${imgBasePath}${producto.imagen}`) : null;
         
         // CORRECCION: Se eliminaron los estilos inline. La clase .producto-img en 05-productos.css ya maneja todo.
         const imagenHTML = imagenSrc
@@ -49,10 +50,9 @@ export function renderizarProductos(listaProductos, tasaCambio) {
         
         const esClicable = !!producto.url;
         
-        // ✅ CORRECCION CRITICA: producto.url YA incluye la carpeta.
-        // Solo necesitamos agregar "../" si estamos dentro de una subcarpeta para subir un nivel.
+        // ✅ AJUSTE DE SEGURIDAD 2: Si la URL ya empieza con '/', úsala tal cual. Si no, aplica la lógica de subcarpeta.
         const productoURL = esClicable 
-            ? (isSubfolder ? `../${producto.url}` : producto.url)
+            ? (producto.url.startsWith('/') ? producto.url : (isSubfolder ? `../${producto.url}` : producto.url))
             : '#';
         
         const contenidoInfo = `
