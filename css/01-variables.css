@@ -6,13 +6,16 @@
 
 :root {
     /* ========================================== */
-    /* 🎨 COLORES PRINCIPALES */
+    /* 🎨 COLORES PRINCIPALES (Paleta Puntimeraki) */
     /* ========================================== */
-    --rosa: #F191F2;
-    --amarillo: #F2BC79;
-    --naranja: #BF6F41;
-    --durazno: #F2BC79;
-    --chocolate: #180326;
+    --rosa: #F191F2;        /* Rosa vibrante - Color principal */
+    --morado-oscuro: #180326;   /* Chocolate/Morado muy oscuro - Fondo principal */
+    --morado-medio: #472C59;    /* Morado medio - Elementos secundarios */
+    --amarillo: #F2BC79;        /* Amarillo/Dorado - Acentos y detalles */
+    --naranja: #BF6F41;         /* Naranja/Tierra - Detalles cálidos */
+    
+    /* ✅ COLORES ADICIONALES DE LA PALETA */
+    --rosa-claro: #F191F2;      /* Rosa principal */
     --blanco: #FFFFFF;
     --verde: #28a745;
     --gris-claro: #f5f5f5;
@@ -383,7 +386,7 @@
     --max-width-nav-bar: calc(100% - 260px);
     --min-width-nav-dropdown: 180px;
     --min-width-nav-dropdown-movil: 140px;
-    --max-height-menu-subnav: 200px;
+    --max-height-menu-subnav: 1000px; /* ✅ AJUSTE: Altura suficiente para 6+ opciones */
 
     /* ✅ LAYOUT DE HEADER (Alturas, Logos y Posiciones) */
     --altura-header-tablet: 220px;
