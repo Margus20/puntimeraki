@@ -16,10 +16,10 @@ export const CONFIG = {
 export const PRODUCTOS = [
     { 
         id: 1, 
-        nombre: "Separador Girasoles Dorados", 
+        nombre: "Marcalibros Girasoles Dorados", // ✅ CAMBIO: Ahora dice "Marcalibros" en lugar de "Separador"
         precio: 3.50, 
-        categoria: "marcalibros", // ✅ CAMBIO 1: Ahora coincide exactamente con el nombre del menú
-        imagen: "/puntimeraki/img/separadores_de_libro/amarillo_1.jpg", // ✅ Se deja igual para que la foto NO se rompa
-        url: "/puntimeraki/marcalibros/girasoles-dorados.html" // ✅ CAMBIO 2: El enlace ahora apunta a la nueva carpeta
+        categoria: "marcalibros", 
+        imagen: "/puntimeraki/img/separadores_de_libro/amarillo_1.jpg", 
+        url: "/puntimeraki/marcalibros/girasoles-dorados.html" 
     }
 ];
