@@ -206,8 +206,9 @@
 }
 .buscador-input::placeholder { color: var(--color-texto-placeholder); font-style: italic; }
 
+/* ✅ CAMBIO: Fondo del botón de la lupa en morado oscuro (igual que el footer) */
 .buscador-btn {
-    background: var(--rosa);
+    background: var(--chocolate);
     border: none;
     border-radius: var(--radio-redondo);
     width: var(--tamano-boton-buscador-desktop);
@@ -220,9 +221,11 @@
     transition: all var(--transicion-normal);
     flex-shrink: 0;
 }
-.buscador-btn:hover { background: var(--chocolate); transform: scale(1.05); }
 
-/* ✅ CAMBIO: Lupa en color amarillo */
+/* ✅ CAMBIO: Hover del botón de la lupa en amarillo */
+.buscador-btn:hover { background: #F2D272; transform: scale(1.05); }
+
+/* ✅ Lupa en color amarillo */
 .buscador-btn svg { 
     width: 18px; 
     height: 18px; 
