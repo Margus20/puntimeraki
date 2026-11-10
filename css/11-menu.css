@@ -299,12 +299,13 @@
     box-shadow: 0 6px 20px rgba(24, 3, 38, 0.6) !important;
 }
 
+/* ✅ CAMBIO: Se quitó el filtro blanco para que la bolsa se vea con sus colores reales */
 .btn-flotante-excalibur img,
 .excalibur-flotante img {
     width: 70% !important;
     height: 70% !important;
     object-fit: contain !important;
-    filter: brightness(0) invert(1) !important;
+    filter: none !important;
 }
 
 /* ✅ Contador del carrito visible sobre fondo morado oscuro */
