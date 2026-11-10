@@ -29,18 +29,19 @@
 }
 
 /* ✅ CORRECCIÓN NUCLEAR PARA CHROME EN LOS ENLACES DEL MENÚ */
+/* ✅ CAMBIO: Fondo amarillo sólido y letra morado oscuro */
 .nav-link {
     display: block;
     padding: var(--padding-nav-link-desktop);
-    color: var(--chocolate);
+    color: var(--chocolate); /* Morado oscuro #180326 */
     text-decoration: none;
     font-weight: 700;
     font-size: var(--tamano-nav-link-desktop);
     transition: all var(--transicion-normal);
     white-space: nowrap;
     border-radius: var(--radio-boton-agregar);
-    background: var(--color-fondo-nav-link);
-    border: 2px solid var(--rosa);
+    background: #F2D272; /* ✅ Amarillo sólido de la paleta */
+    border: 2px solid #F2D272; /* ✅ Borde del mismo amarillo */
     
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent;
@@ -55,15 +56,24 @@
     position: relative;
     z-index: 106;
     cursor: pointer;
-    border: none;
-    background: var(--color-fondo-nav-link);
+    border: 2px solid #F2D272; /* ✅ Borde amarillo */
+    background: #F2D272; /* ✅ Fondo amarillo sólido */
+    color: var(--chocolate); /* ✅ Letra morado oscuro */
 }
 
+/* ✅ CAMBIO: Hover con fondo morado y letra amarilla para contraste */
 .nav-link:hover {
-    background: var(--rosa);
-    color: var(--blanco);
+    background: var(--chocolate);
+    color: #F2D272;
+    border-color: var(--chocolate);
     transform: translateY(-2px);
     box-shadow: var(--sombra-hover-producto);
+}
+
+#navProductosToggle:hover {
+    background: var(--chocolate);
+    color: #F2D272;
+    border-color: var(--chocolate);
 }
 
 .nav-dropdown {
@@ -93,12 +103,13 @@
     border-bottom: 1px solid var(--color-borde-claro);
 }
 .dropdown-link:last-child { border-bottom: none; }
-.dropdown-link:hover { background: var(--amarillo); color: var(--chocolate); }
+.dropdown-link:hover { background: #F2D272; color: var(--chocolate); }
 
 .nav-item:has(.nav-dropdown) .nav-link::after {
     content: ' ▼';
     font-size: 0.7rem;
     margin-left: 5px;
+    color: var(--chocolate);
 }
 
 /* ========================================== */
@@ -148,7 +159,7 @@
     padding: var(--padding-menu-item);
     border-bottom: var(--borde-menu-item);
 }
-.menu-item:hover { color: var(--amarillo); }
+.menu-item:hover { color: #F2D272; }
 
 .menu-item-dropdown { width: 100%; }
 
@@ -170,7 +181,7 @@
     border-bottom: var(--borde-menu-item);
     transition: color var(--transicion-normal);
 }
-.menu-toggle-dropdown:hover { color: var(--amarillo); }
+.menu-toggle-dropdown:hover { color: #F2D272; }
 .menu-toggle-dropdown .dropdown-arrow { 
     font-size: var(--tamano-dropdown-arrow); 
     transition: transform var(--transicion-normal); 
@@ -200,7 +211,7 @@
 }
 .menu-subitem:hover { 
     background: var(--color-fondo-menu-subitem-hover); 
-    color: var(--amarillo); 
+    color: #F2D272; 
 }
 
 /* ========================================== */
@@ -273,10 +284,16 @@
 /* ========================================== */
 /* El header tiene z-index: 1000, así que estos botones deben tener z-index mayor */
 
+/* ✅ CAMBIO: Rayitas del menú hamburguesa en color amarillo */
 .btn-menu-flotante,
 .btn-flotante-menu {
     z-index: 1100 !important;
     position: fixed !important;
+}
+
+.btn-menu-flotante svg line,
+.btn-flotante-menu svg line {
+    stroke: #F2D272 !important; /* ✅ Rayitas amarillas */
 }
 
 /* ✅ BOTÓN DE LA BOLSA (CARRITO) - Fondo morado oscuro */
