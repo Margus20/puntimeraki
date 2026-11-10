@@ -84,11 +84,19 @@ document.addEventListener('componentesListos', () => {
             const path = window.location.pathname;
             let productosAMostrar = PRODUCTOS;
 
-            // ✅ CAMBIO QUIRÚRGICO: Actualizar rutas y categorías a las nuevas de Puntimeraki
+            // ✅ CAMBIO QUIRÚRGICO: Actualizar rutas y categorías a TODAS las nuevas de Puntimeraki
             if (path.includes('/portavelas/')) {
                 productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'portavelas');
-            } else if (path.includes('/separadores_de_libro/')) {
-                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'separadores_de_libro');
+            } else if (path.includes('/marcalibros/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'marcalibros');
+            } else if (path.includes('/llaveros/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'llaveros');
+            } else if (path.includes('/collares/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'collares');
+            } else if (path.includes('/porta_incensos/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'porta_incensos');
+            } else if (path.includes('/bambalinas/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'bambalinas');
             }
 
             renderizarProductos(productosAMostrar, tasaCambio);
