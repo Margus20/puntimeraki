@@ -18,8 +18,8 @@ export const PRODUCTOS = [
         id: 1, 
         nombre: "Separador Girasoles Dorados", 
         precio: 3.50, 
-        categoria: "separadores_de_libro", 
-        imagen: "/puntimeraki/img/separadores_de_libro/amarillo_1.jpg", 
-        url: "/puntimeraki/separadores_de_libro/girasoles-dorados.html" 
+        categoria: "marcalibros", // ✅ CAMBIO 1: Ahora coincide exactamente con el nombre del menú
+        imagen: "/puntimeraki/img/separadores_de_libro/amarillo_1.jpg", // ✅ Se deja igual para que la foto NO se rompa
+        url: "/puntimeraki/marcalibros/girasoles-dorados.html" // ✅ CAMBIO 2: El enlace ahora apunta a la nueva carpeta
     }
 ];
