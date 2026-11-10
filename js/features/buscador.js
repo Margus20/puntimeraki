@@ -62,7 +62,7 @@ export function inicializarBuscador() {
             if (!sinResultados) {
                 sinResultados = document.createElement('div');
                 sinResultados.className = 'sin-resultados';
-                sinResultados.textContent = 'No se encontraron productos que coincidan con tu búsqueda. 🍪';
+                sinResultados.textContent = 'No se encontraron productos que coincidan con tu búsqueda. 🎨'; // ✅ CAMBIO: Emoji de arte
                 productosGrid.appendChild(sinResultados);
             }
             sinResultados.classList.toggle('visible', termino !== '' && visibles === 0);
@@ -88,12 +88,13 @@ export function inicializarBuscador() {
                 
                 // Determinar la ruta correcta de la imagen
                 const path = window.location.pathname;
-                const isSubfolder = path.includes('/galletas/') || path.includes('/mermeladas/');
+                // ✅ CAMBIO: Actualizar a las nuevas carpetas de Puntimeraki
+                const isSubfolder = path.includes('/portavelas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/');
                 const imgSrc = producto.imagen ? (isSubfolder ? `../${producto.imagen}` : producto.imagen) : '';
 
                 item.innerHTML = `
                     <img src="${imgSrc}" alt="${producto.nombre}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="resultado-item-placeholder" style="display:none; width:40px; height:40px; background:var(--gris-claro); border-radius:50%; align-items:center; justify-content:center; margin-right:10px;">🍪</div>
+                    <div class="resultado-item-placeholder" style="display:none; width:40px; height:40px; background:var(--gris-claro); border-radius:50%; align-items:center; justify-content:center; margin-right:10px;">🎨</div>
                     <span>${producto.nombre}</span>
                 `;
 
@@ -102,12 +103,12 @@ export function inicializarBuscador() {
                     if (producto.url) {
                         let urlDestino = producto.url;
                         
-                        // Si la URL en config.js ya incluye la carpeta (ej: "galletas/limon.html" o "/galletas/limon.html")
+                        // Si la URL en config.js ya incluye la carpeta (ej: "marcalibros/girasoles-dorados.html" o "/marcalibros/girasoles-dorados.html")
                         if (urlDestino.includes('/')) {
                             // Si estamos en una subcarpeta, necesitamos subir un nivel (../)
                             urlDestino = isSubfolder ? `../${urlDestino}` : urlDestino;
                         } else {
-                            // Si la URL es solo el archivo (ej: "limon.html"), le agregamos la categoría
+                            // Si la URL es solo el archivo (ej: "girasoles-dorados.html"), le agregamos la categoría
                             urlDestino = isSubfolder 
                                 ? `../${producto.categoria}/${urlDestino}` 
                                 : `${producto.categoria}/${urlDestino}`;
