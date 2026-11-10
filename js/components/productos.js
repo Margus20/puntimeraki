@@ -18,7 +18,8 @@ export function renderizarProductos(listaProductos, tasaCambio) {
     }
     
     const path = window.location.pathname;
-    const isSubfolder = path.includes('/galletas/') || path.includes('/mermeladas/');
+    // ✅ CAMBIO QUIRÚRGICO: Actualizar a las nuevas carpetas de Puntimeraki
+    const isSubfolder = path.includes('/portavelas/') || path.includes('/separadores_de_libro/');
     const imgBasePath = isSubfolder ? '../' : '';
     
     // OPTIMIZACION: Usar DocumentFragment para insertar todo el HTML de una sola vez
@@ -48,7 +49,7 @@ export function renderizarProductos(listaProductos, tasaCambio) {
         
         const esClicable = !!producto.url;
         
-        // ✅ CORRECCION CRITICA: producto.url YA incluye la carpeta (ej: "galletas/coco-vainilla.html").
+        // ✅ CORRECCION CRITICA: producto.url YA incluye la carpeta.
         // Solo necesitamos agregar "../" si estamos dentro de una subcarpeta para subir un nivel.
         const productoURL = esClicable 
             ? (isSubfolder ? `../${producto.url}` : producto.url)
