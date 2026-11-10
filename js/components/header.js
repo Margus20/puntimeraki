@@ -6,13 +6,13 @@ export async function cargarComponentes() {
     try {
         // 1. Detectar el entorno para ajustar la ruta base correctamente
         const path = window.location.pathname;
-        const isGitHubPages = path.includes('/slakidom/');
-        const isSubfolder = path.includes('/galletas/') || path.includes('/mermeladas/');
+        const isGitHubPages = path.includes('/puntimeraki/'); // ✅ CAMBIO 1: Nuevo nombre del repositorio
+        const isSubfolder = path.includes('/portavelas/') || path.includes('/separadores_de_libro/'); // ✅ CAMBIO 2: Nuevas carpetas
         
         let basePath = '';
         if (isGitHubPages) {
             // En GitHub Pages, la ruta absoluta desde la raíz del repositorio es lo más seguro
-            basePath = '/slakidom/';
+            basePath = '/puntimeraki/'; // ✅ CAMBIO 3: Nuevo nombre del repositorio
         } else {
             // En entorno local, usamos rutas relativas
             basePath = isSubfolder ? '../' : './';
