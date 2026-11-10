@@ -221,7 +221,13 @@
     flex-shrink: 0;
 }
 .buscador-btn:hover { background: var(--chocolate); transform: scale(1.05); }
-.buscador-btn svg { width: 18px; height: 18px; }
+
+/* ✅ CAMBIO: Lupa en color amarillo */
+.buscador-btn svg { 
+    width: 18px; 
+    height: 18px; 
+    stroke: #F2D272 !important; 
+}
 
 /* ========================================== */
 /* DROPDOWN DEL BUSCADOR */
@@ -378,7 +384,7 @@
 
     .buscador-input { font-size: var(--tamano-buscador-input-tablet); padding: var(--padding-buscador-input-tablet); }
     .buscador-btn { width: var(--tamano-boton-buscador-tablet); height: var(--tamano-boton-buscador-tablet); }
-    .buscador-btn svg { width: 16px; height: 16px; }
+    .buscador-btn svg { width: 16px; height: 16px; stroke: #F2D272 !important; }
     
     .buscador-dropdown { width: var(--ancho-dropdown-buscador-tablet); max-height: var(--alto-max-dropdown-buscador-tablet); }
     .resultado-item img { width: var(--tamano-imagen-resultado-tablet); height: var(--tamano-imagen-resultado-tablet); }
@@ -537,6 +543,7 @@
     .buscador-btn svg {
         width: 16px;
         height: 16px;
+        stroke: #F2D272 !important;
     }
     
     /* ✅ Dropdown del buscador con z-index muy alto */
