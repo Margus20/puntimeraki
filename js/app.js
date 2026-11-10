@@ -1,5 +1,5 @@
 // ==========================================
-// SLAKIDOM - ORQUESTADOR PRINCIPAL (app.js)
+// PUNTIMERAKI - ORQUESTADOR PRINCIPAL (app.js)
 // ==========================================
 
 import { cargarComponentes } from './components/header.js';
@@ -84,10 +84,11 @@ document.addEventListener('componentesListos', () => {
             const path = window.location.pathname;
             let productosAMostrar = PRODUCTOS;
 
-            if (path.includes('/galletas/')) {
-                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'galletas');
-            } else if (path.includes('/mermeladas/')) {
-                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'mermeladas');
+            // ✅ CAMBIO QUIRÚRGICO: Actualizar rutas y categorías a las nuevas de Puntimeraki
+            if (path.includes('/portavelas/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'portavelas');
+            } else if (path.includes('/separadores_de_libro/')) {
+                productosAMostrar = PRODUCTOS.filter(p => p.categoria === 'separadores_de_libro');
             }
 
             renderizarProductos(productosAMostrar, tasaCambio);
@@ -98,5 +99,5 @@ document.addEventListener('componentesListos', () => {
         }
     })();
 
-    console.log('[APP]: Sistema SLAKIDOM activo y listo!');
+    console.log('[APP]: Sistema Puntimeraki activo y listo!');
 });
