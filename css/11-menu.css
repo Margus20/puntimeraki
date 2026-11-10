@@ -279,10 +279,52 @@
     position: fixed !important;
 }
 
+/* ✅ BOTÓN DE LA BOLSA (CARRITO) - Fondo morado oscuro */
 .btn-flotante-excalibur,
 .excalibur-flotante {
     z-index: 1100 !important;
     position: fixed !important;
+    background: var(--chocolate) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(24, 3, 38, 0.4) !important;
+    transition: transform var(--transicion-normal), box-shadow var(--transicion-normal) !important;
+}
+
+.btn-flotante-excalibur:hover,
+.excalibur-flotante:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 6px 20px rgba(24, 3, 38, 0.6) !important;
+}
+
+.btn-flotante-excalibur img,
+.excalibur-flotante img {
+    width: 70% !important;
+    height: 70% !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+/* ✅ Contador del carrito visible sobre fondo morado oscuro */
+#contador-carrito-flotante,
+.contador-flotante {
+    background: var(--rosa) !important;
+    color: var(--blanco) !important;
+    border: 2px solid var(--blanco) !important;
+    font-weight: 900 !important;
+    font-size: var(--tamano-contador-flotante) !important;
+    min-width: var(--tamano-contador-flotante-ancho) !important;
+    height: var(--tamano-contador-flotante-ancho) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: var(--top-contador-flotante) !important;
+    right: var(--right-contador-flotante) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
 }
 
 .whatsapp-flotante,
