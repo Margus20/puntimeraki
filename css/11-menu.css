@@ -29,19 +29,19 @@
 }
 
 /* ✅ CORRECCIÓN NUCLEAR PARA CHROME EN LOS ENLACES DEL MENÚ */
-/* ✅ CAMBIO: Fondo amarillo sólido y letra morado oscuro */
+/* ✅ CAMBIO: Fondo morado oscuro y letra amarilla */
 .nav-link {
     display: block;
     padding: var(--padding-nav-link-desktop);
-    color: var(--chocolate); /* Morado oscuro #180326 */
+    color: #F2D272; /* ✅ Letra amarilla */
     text-decoration: none;
     font-weight: 700;
     font-size: var(--tamano-nav-link-desktop);
     transition: all var(--transicion-normal);
     white-space: nowrap;
     border-radius: var(--radio-boton-agregar);
-    background: #F2D272; /* ✅ Amarillo sólido de la paleta */
-    border: 2px solid #F2D272; /* ✅ Borde del mismo amarillo */
+    background: var(--chocolate); /* ✅ Fondo morado oscuro */
+    border: 2px solid var(--chocolate); /* ✅ Borde morado oscuro */
     
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent;
@@ -56,24 +56,24 @@
     position: relative;
     z-index: 106;
     cursor: pointer;
-    border: 2px solid #F2D272; /* ✅ Borde amarillo */
-    background: #F2D272; /* ✅ Fondo amarillo sólido */
-    color: var(--chocolate); /* ✅ Letra morado oscuro */
+    border: 2px solid var(--chocolate); /* ✅ Borde morado oscuro */
+    background: var(--chocolate); /* ✅ Fondo morado oscuro */
+    color: #F2D272; /* ✅ Letra amarilla */
 }
 
-/* ✅ CAMBIO: Hover con fondo morado y letra amarilla para contraste */
+/* ✅ CAMBIO: Hover con fondo amarillo y letra morada para contraste */
 .nav-link:hover {
-    background: var(--chocolate);
-    color: #F2D272;
-    border-color: var(--chocolate);
+    background: #F2D272;
+    color: var(--chocolate);
+    border-color: #F2D272;
     transform: translateY(-2px);
     box-shadow: var(--sombra-hover-producto);
 }
 
 #navProductosToggle:hover {
-    background: var(--chocolate);
-    color: #F2D272;
-    border-color: var(--chocolate);
+    background: #F2D272;
+    color: var(--chocolate);
+    border-color: #F2D272;
 }
 
 .nav-dropdown {
@@ -109,7 +109,7 @@
     content: ' ▼';
     font-size: 0.7rem;
     margin-left: 5px;
-    color: var(--chocolate);
+    color: #F2D272; /* ✅ Flechita amarilla */
 }
 
 /* ========================================== */
