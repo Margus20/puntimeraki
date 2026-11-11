@@ -451,8 +451,10 @@
     background: #ffffff;
 }
 
+/* ✅ CAMBIO: Fuente normal (no cursiva) para mejor legibilidad */
 .producto-descripcion-full h2 {
-    font-family: var(--fuente-titulo) !important;
+    font-family: var(--fuente-texto) !important; /* CAMBIADO de --fuente-titulo */
+    font-style: normal !important; /* Asegura que NO sea cursiva */
     color: var(--chocolate, #5D4037);
     margin-bottom: 20px;
     font-size: 1.5rem;
@@ -479,11 +481,13 @@
     border-left: 4px solid var(--amarillo, #FFD700);
 }
 
+/* ✅ CAMBIO: Fuente normal (no cursiva) para mejor legibilidad */
 .producto-caracteristicas h3 {
     color: var(--chocolate, #5D4037);
     margin-bottom: 15px;
     font-size: 1.2rem;
-    font-family: var(--fuente-titulo) !important;
+    font-family: var(--fuente-texto) !important; /* CAMBIADO de --fuente-titulo */
+    font-style: normal !important; /* Asegura que NO sea cursiva */
 }
 
 .producto-caracteristicas ul {
@@ -539,7 +543,7 @@
         word-wrap: break-word;
     }
     
-    /* ✅ TÍTULO de descripción más compacto en móvil */
+    /* ✅ TÍTULO de descripción más compacto en móvil (también sin cursiva) */
     .producto-descripcion-full h2 {
         font-size: 1.2rem !important;
         line-height: 1.2;
