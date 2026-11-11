@@ -44,8 +44,8 @@ export function inicializarLightboxProceso() {
             'img/procesos/pintura/foto1.jpg'
         ],
         finalizamos: [
-            'img/portavelas/foto1_1.jpg',      // ✅ PORTADA: Portavelas
-            'img/marcalibros/amarillo_1.jpg'   // ✅ SEGUNDA: Marcalibros
+            'img/portavelas/personalizado.jpg',      // ✅ PORTADA: 3 portavelas fondo morado
+            'img/marcalibros/personalizado.jpg'     // ✅ SEGUNDA: Marcalibros fondo rosa
         ]
     };
     
