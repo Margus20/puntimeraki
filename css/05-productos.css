@@ -313,7 +313,7 @@
 
 .producto-info { padding-top: 10px; }
 
-/* ✅ TÍTULO DEL PRODUCTO: Fuente Bowlby, tamaño controlado, centrado */
+/* ✅ TÍTULO DEL PRODUCTO: Fuente Playball, tamaño controlado, centrado */
 .producto-info h1 {
     font-family: var(--fuente-titulo) !important;
     font-size: 1.8rem !important;
@@ -451,10 +451,10 @@
     background: #ffffff;
 }
 
-/* ✅ CAMBIO: Fuente normal (no cursiva) para mejor legibilidad */
+/* ✅ CAMBIO: h2 usa Caveat (fuente subtitulo) para coherencia con el sitio */
 .producto-descripcion-full h2 {
-    font-family: var(--fuente-texto) !important; /* CAMBIADO de --fuente-titulo */
-    font-style: normal !important; /* Asegura que NO sea cursiva */
+    font-family: var(--fuente-subtitulo) !important; /* ✅ CAVEAT */
+    font-weight: 700 !important;
     color: var(--chocolate, #5D4037);
     margin-bottom: 20px;
     font-size: 1.5rem;
@@ -462,11 +462,13 @@
     text-transform: uppercase;
 }
 
+/* ✅ CAMBIO: Párrafos con estilo similar a "Sobre Mí" - más peso y claridad */
 .producto-descripcion-full p {
     font-family: var(--fuente-texto) !important;
-    line-height: 1.6;
-    color: #555;
-    font-size: 1rem;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important; /* ✅ Más peso para mejor legibilidad */
+    color: var(--chocolate) !important; /* ✅ Color más oscuro */
+    line-height: 1.7 !important;
     margin-bottom: 15px;
     max-width: 900px;
     text-align: left;
@@ -481,13 +483,13 @@
     border-left: 4px solid var(--amarillo, #FFD700);
 }
 
-/* ✅ CAMBIO: Fuente normal (no cursiva) para mejor legibilidad */
+/* ✅ CAMBIO: h3 usa Caveat (fuente subtitulo) para coherencia con el sitio */
 .producto-caracteristicas h3 {
     color: var(--chocolate, #5D4037);
     margin-bottom: 15px;
     font-size: 1.2rem;
-    font-family: var(--fuente-texto) !important; /* CAMBIADO de --fuente-titulo */
-    font-style: normal !important; /* Asegura que NO sea cursiva */
+    font-family: var(--fuente-subtitulo) !important; /* ✅ CAVEAT */
+    font-weight: 700 !important;
 }
 
 .producto-caracteristicas ul {
@@ -502,9 +504,11 @@
     padding: 5px 0;
     padding-left: 30px;
     position: relative;
-    font-size: 0.95rem;
-    color: #555;
+    font-size: 1rem; /* ✅ Tamaño un poco mayor */
+    font-weight: 600; /* ✅ Más peso para mejor legibilidad */
+    color: var(--chocolate); /* ✅ Color más oscuro */
     font-family: var(--fuente-texto);
+    line-height: 1.6;
 }
 
 .producto-caracteristicas li:before {
@@ -543,7 +547,7 @@
         word-wrap: break-word;
     }
     
-    /* ✅ TÍTULO de descripción más compacto en móvil (también sin cursiva) */
+    /* ✅ TÍTULO de descripción más compacto en móvil */
     .producto-descripcion-full h2 {
         font-size: 1.2rem !important;
         line-height: 1.2;
@@ -571,5 +575,14 @@
     .producto-descripcion-full p,
     .producto-caracteristicas {
         max-width: 100%;
+    }
+    
+    /* ✅ Ajuste responsive para párrafos */
+    .producto-descripcion-full p {
+        font-size: 1rem !important;
+    }
+    
+    .producto-caracteristicas li {
+        font-size: 0.95rem;
     }
 }
