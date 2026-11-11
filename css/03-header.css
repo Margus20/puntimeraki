@@ -2,21 +2,22 @@
 /* 03. HEADER (BARRA SUPERIOR, LOGO Y BUSCADOR) */
 /* ========================================== */
 .header {
-    background-color: var(--rosa);
+    /* ✅ NUEVO: Usa la variable con la textura difuminada y el overlay rosa integrado */
+    background: var(--fondo-header);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     padding: 0 var(--espacio-md);
     display: flex;
     align-items: center;
     justify-content: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* ✅ MANTENIDO: Jerarquía original intacta */
     box-shadow: var(--sombra-media);
     height: 260px;
     overflow: visible !important;
-    background-image: url('../img/navidad.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .header::before {
@@ -26,8 +27,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(241, 145, 242, 0.85);
+    /* ✅ AJUSTE: Transparente para no duplicar la opacidad del gradiente en la variable */
+    background-color: transparent; 
     z-index: 0;
+    pointer-events: none; /* ✅ SEGURIDAD: Garantiza que este pseudo-elemento nunca bloquee clics */
 }
 
 .header-botones {
