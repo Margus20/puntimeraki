@@ -14,6 +14,11 @@
     --amarillo: #F2BC79;          /* Amarillo/Dorado - Acentos, textos destacados y detalles */
     --naranja: #BF6F41;           /* Naranja/Tierra - Detalles cálidos */
     
+    /* ✅ NUEVO: FONDO DEL HEADER CON TEXTURA SUTIL */
+    /* Usa horizontal1.jpg con una capa rosa semi-transparente (85% opacidad) para difuminar */
+    --fondo-header: linear-gradient(rgba(241, 145, 242, 0.85), rgba(241, 145, 242, 0.85)), 
+                    url('../img/horizontal1.jpg');
+    
     /* ✅ ALIAS DE COMPATIBILIDAD (Para que ningún archivo CSS existente se rompa) */
     --chocolate: #180326;         /* Alias de --morado-oscuro */
     --durazno: #F2BC79;           /* Alias de --amarillo */
