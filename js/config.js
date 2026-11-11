@@ -15,19 +15,19 @@ export const CONFIG = {
 // Nota: Los precios deben ser números (ej: 3.50, no "3.50") para que los cálculos matemáticos funcionen.
 export const PRODUCTOS = [
     { 
-        id: 1, 
-        nombre: "Marcalibros Girasoles Dorados",
-        precio: 3.50, 
-        categoria: "marcalibros", 
-        imagen: "/puntimeraki/img/marcalibros/amarillo_1.jpg", // ✅ RUTA ACTUALIZADA
-        url: "/puntimeraki/marcalibros/girasoles-dorados.html" 
-    },
-    { 
         id: 99, 
         nombre: "Marcalibros Personalizado", 
         precio: 5.00, 
         categoria: "marcalibros", 
-        imagen: "/puntimeraki/img/marcalibros/personalizado.jpg", // ✅ NUEVO PRODUCTO
+        imagen: "/puntimeraki/img/marcalibros/personalizado.jpg",
         url: "/puntimeraki/marcalibros/personalizado.html" 
+    },
+    { 
+        id: 1, 
+        nombre: "Marcalibros Girasoles Dorados",
+        precio: 3.50, 
+        categoria: "marcalibros", 
+        imagen: "/puntimeraki/img/marcalibros/amarillo_1.jpg",
+        url: "/puntimeraki/marcalibros/girasoles-dorados.html" 
     }
 ];
