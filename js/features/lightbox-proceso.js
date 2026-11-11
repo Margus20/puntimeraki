@@ -18,6 +18,7 @@ export function inicializarLightboxProceso() {
     
     // ✅ Base de datos de fotos por etapa (Fácil de expandir en el futuro)
     const galerias = {
+        // ✅ SECCIONES ORIGINALES (MANTENIDAS INTACTAS)
         seleccionamos: [
             'img/procesos/seleccionamos/foto1.jpg',
             'img/procesos/seleccionamos/foto2.jpg'
@@ -33,6 +34,18 @@ export function inicializarLightboxProceso() {
         empacamos: [
             'img/procesos/empacamos/foto1.jpg',
             'img/procesos/empacamos/foto2.jpg'
+        ],
+        
+        // ✅ NUEVAS SECCIONES (AGREGADAS)
+        disenamos: [
+            'img/procesos/diseno/foto1.jpg'
+        ],
+        pintamos: [
+            'img/procesos/pintura/foto1.jpg'
+        ],
+        finalizamos: [
+            'img/portavelas/foto1_1.jpg',      // ✅ PORTADA: Portavelas
+            'img/marcalibros/amarillo_1.jpg'   // ✅ SEGUNDA: Marcalibros
         ]
     };
     
