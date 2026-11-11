@@ -179,6 +179,7 @@ function eliminarDelCarrito(index) {
     mostrarCarritoModal();
 }
 
+// ✅ CORREGIDO: Ahora cierra el modal y no causa redirección
 export function finalizarPedidoWhatsApp() {
     carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
     
@@ -200,7 +201,15 @@ export function finalizarPedidoWhatsApp() {
     mensaje += `%0A*Total a pagar: $${total.toFixed(2)}*`;
     mensaje += "%0A%0AQuedo atento a los datos de Pago Movil para realizar la transferencia. Gracias!";
 
-    window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`, "_blank");
+    // ✅ Abrir WhatsApp en nueva pestaña
+    const whatsappUrl = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // ✅ Cerrar el modal del carrito inmediatamente
+    cerrarCarritoModal();
+    
+    // ✅ Mostrar notificación de confirmación
+    mostrarNotificacion('¡Pedido enviado! Revisa WhatsApp para continuar.');
 }
 
 export function mostrarNotificacion(mensaje) {
