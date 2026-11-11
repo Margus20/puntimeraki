@@ -442,24 +442,26 @@
         border-radius: 12px;
         z-index: 200;
         pointer-events: auto !important;
+        min-width: 50px;
+        justify-content: center;
     }
     
-    /* Ocultar bandera (emoji 🇻🇪) en móvil */
+    /* Ocultar bandera (emoji 🇪) en móvil */
     .selector-moneda .bandera {
         display: none !important;
     }
     
-    /* Ocultar texto "Venezuela ($)" en móvil */
+    /* ✅ NUEVO: Mostrar SOLO el símbolo de moneda en móvil ($ o Bs.) en lugar de "Venezuela ($)" */
     .selector-moneda .moneda-actual {
-        display: none !important;
+        display: inline !important;
+        font-size: 1.3rem !important;
+        font-weight: bold !important;
+        color: var(--chocolate) !important;
     }
     
-    /* Mantener la flecha visible y más grande */
+    /* Ocultar la flecha en móvil (ya no es necesaria porque mostramos el símbolo) */
     .selector-moneda .flecha {
-        font-size: 1.5rem;
-        display: block;
-        color: var(--chocolate);
-        font-weight: bold;
+        display: none !important;
     }
     
     /* ✅ Logo: MÁS PEQUEÑO (90px) y centrado */
