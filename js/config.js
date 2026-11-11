@@ -29,5 +29,13 @@ export const PRODUCTOS = [
         categoria: "marcalibros", 
         imagen: "/puntimeraki/img/marcalibros/amarillo_1.jpg",
         url: "/puntimeraki/marcalibros/girasoles-dorados.html" 
+    },
+    { 
+        id: 10, 
+        nombre: "Portavelas Mandala Azul",
+        precio: 8.00, 
+        categoria: "portavelas", 
+        imagen: "/puntimeraki/img/portavelas/foto1_1.jpg",
+        url: "/puntimeraki/portavelas/portavelas-mandala-azul.html" 
     }
 ];
