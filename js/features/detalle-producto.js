@@ -2,6 +2,9 @@
 // LÓGICA DE DETALLE DE PRODUCTO (DINÁMICA Y UNIVERSAL)
 // ==========================================
 
+// ✅ NUEVO: Importamos la función de notificación bonita desde carrito.js
+import { mostrarNotificacion } from './carrito.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Verificar si estamos en una página de detalle de producto
     const detalleSection = document.querySelector('.producto-detalle');
@@ -90,8 +93,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 imagen: productoImagen
             };
             
-            // Leemos el carrito actual
-            let carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+            // ✅ ACTUALIZADO: Usar la nueva clave única para evitar conflictos con otros proyectos
+            let carrito = JSON.parse(localStorage.getItem('puntimeraki_carrito') || '[]');
             const existe = carrito.find(item => item.id === producto.id);
             
             // Si existe, sumamos la cantidad. Si no, lo agregamos nuevo.
@@ -101,12 +104,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 carrito.push(producto);
             }
             
-            // Guardamos y notificamos al sistema global
-            localStorage.setItem('carrito', JSON.stringify(carrito));
+            // ✅ ACTUALIZADO: Guardar con la nueva clave y actualizar el tiempo de expiración
+            localStorage.setItem('puntimeraki_carrito', JSON.stringify(carrito));
+            localStorage.setItem('puntimeraki_carrito_time', Date.now().toString());
+            
+            // Notificamos al sistema global
             window.dispatchEvent(new Event('carritoActualizado'));
             
-            // Feedback al usuario
-            alert(`✅ Agregaste ${cantidad} unidad(es) de ${productoNombre} al carrito`);
+            // ✅ CAMBIO: Notificación bonita en lugar del alert feo del navegador
+            mostrarNotificacion(`✅ Agregaste ${cantidad} unidad(es) de ${productoNombre} al carrito`);
             
             // Resetear cantidad a 1 visualmente
             cantidad = 1;
