@@ -18,8 +18,8 @@ export function renderizarProductos(listaProductos, tasaCambio) {
     }
     
     const path = window.location.pathname;
-    // ✅ CAMBIO QUIRÚRGICO: Actualizar a las nuevas carpetas de Puntimeraki
-    const isSubfolder = path.includes('/portavelas/') || path.includes('/separadores_de_libro/');
+    // ✅ CAMBIO QUIRÚRGICO: Actualizar a TODAS las nuevas carpetas de Puntimeraki
+    const isSubfolder = path.includes('/portavelas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/');
     const imgBasePath = isSubfolder ? '../' : '';
     
     // OPTIMIZACION: Usar DocumentFragment para insertar todo el HTML de una sola vez
@@ -71,10 +71,22 @@ export function renderizarProductos(listaProductos, tasaCambio) {
             </div>
         `;
 
+        // ✅ CAMBIO PRINCIPAL: Si es el producto personalizado, el botón dice "Cotizar" y es un enlace
+        const esPersonalizado = producto.id === 99 || producto.nombre.toLowerCase().includes('personalizado');
+        
+        let botonAccion = '';
+        if (esPersonalizado && esClicable) {
+            // Enlace con estilo de botón para que se vea igual, pero navega a la página de detalle
+            botonAccion = `<a href="${productoURL}" class="btn-agregar-carrito" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Cotizar</a>`;
+        } else {
+            // Comportamiento normal: botón de Agregar al carrito
+            botonAccion = `<button class="btn-agregar-carrito" data-id="${producto.id}">Agregar</button>`;
+        }
+
         // Se usa una clase 'card-link' en lugar de estilos inline para el enlace
         card.innerHTML = `
             ${esClicable ? `<a href="${productoURL}" class="card-link">${contenidoInfo}</a>` : contenidoInfo}
-            <button class="btn-agregar-carrito" data-id="${producto.id}">Agregar</button>
+            ${botonAccion}
         `;
         
         fragment.appendChild(card);
