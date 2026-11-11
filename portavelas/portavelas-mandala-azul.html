@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../css/11-menu.css">
     <link rel="stylesheet" href="../css/09-footer.css">
     <link rel="stylesheet" href="../css/10-animaciones.css">
+    <link rel="stylesheet" href="../css/13-lightbox.css"> <!-- ✅ NUEVO: Lightbox de productos -->
 </head>
 <body>
     
@@ -41,7 +42,6 @@
                     <img src="../img/portavelas/foto1_1.jpg" 
                          alt="Portavelas Mandala Azul - Puntimeraki" 
                          class="img-lightbox"
-                         data-lightbox="portavelas-mandala-azul"
                          onerror="this.src='../img/logo_navidad.png'">
                 </div>
                 
@@ -113,13 +113,11 @@
                             <img src="../img/portavelas/foto1_1.jpg" 
                                  alt="Portavelas Mandala Azul - Vista lateral" 
                                  class="img-lightbox"
-                                 data-lightbox="portavelas-mandala-azul"
                                  style="width: 100%; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
                                  onerror="this.style.display='none'">
                             <img src="../img/portavelas/foto1_2.jpg" 
                                  alt="Portavelas Mandala Azul - Vista superior" 
                                  class="img-lightbox"
-                                 data-lightbox="portavelas-mandala-azul"
                                  style="width: 100%; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
                                  onerror="this.style.display='none'">
                         </div>
@@ -135,60 +133,9 @@
     <!-- ✅ FOOTER (se inyecta desde app.js) -->
     <div id="footer-container"></div>
 
-    <!-- ✅ LIGHTBOX MODAL (Oculto por defecto) -->
-    <div id="lightbox-modal" class="lightbox-modal" style="display: none;">
-        <div class="lightbox-content">
-            <button class="lightbox-close">&times;</button>
-            <img id="lightbox-img" src="" alt="Vista ampliada">
-        </div>
-    </div>
-
     <!-- ✅ SCRIPTS MODULARES -->
     <script type="module" src="../js/app.js"></script>
     <script type="module" src="../js/features/detalle-producto.js"></script>
-    
-    <!-- ✅ SCRIPT DEL LIGHTBOX -->
-    <script>
-        // Lightbox simple para imágenes de productos
-        document.addEventListener('DOMContentLoaded', () => {
-            const lightboxModal = document.getElementById('lightbox-modal');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const closeBtn = document.querySelector('.lightbox-close');
-            const images = document.querySelectorAll('.img-lightbox');
-            
-            // Abrir lightbox al hacer clic en imagen
-            images.forEach(img => {
-                img.addEventListener('click', () => {
-                    const src = img.getAttribute('src');
-                    lightboxImg.src = src;
-                    lightboxModal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Evitar scroll
-                });
-            });
-            
-            // Cerrar lightbox
-            const closeLightbox = () => {
-                lightboxModal.style.display = 'none';
-                document.body.style.overflow = ''; // Restaurar scroll
-            };
-            
-            closeBtn.addEventListener('click', closeLightbox);
-            
-            // Cerrar al hacer clic fuera de la imagen
-            lightboxModal.addEventListener('click', (e) => {
-                if (e.target === lightboxModal) {
-                    closeLightbox();
-                }
-            });
-            
-            // Cerrar con tecla ESC
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightboxModal.style.display === 'block') {
-                    closeLightbox();
-                }
-            });
-        });
-    </script>
     
 </body>
 </html>
