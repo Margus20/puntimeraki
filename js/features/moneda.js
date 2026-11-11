@@ -13,6 +13,32 @@ export function inicializarSelectorMoneda() {
     // Salida temprana si los elementos no existen en esta página
     if (!selectorMoneda || !dropdownMonedas) return;
 
+    // ✅ NUEVO: Función para actualizar el texto del selector según el tamaño de pantalla
+    function actualizarTextoSelector(simbolo) {
+        if (!monedaActualText) return;
+        
+        // Coincide con el breakpoint de 767px del CSS
+        if (window.innerWidth <= 767) {
+            monedaActualText.textContent = simbolo; // Solo el símbolo en móvil ($ o Bs.)
+        } else {
+            monedaActualText.textContent = `Venezuela (${simbolo})`; // Texto completo en desktop
+        }
+    }
+
+    // ✅ NUEVO: Inicializar el texto correcto al cargar la página
+    const opcionSeleccionada = document.querySelector('.opcion-moneda.seleccionada');
+    if (opcionSeleccionada) {
+        actualizarTextoSelector(opcionSeleccionada.dataset.simbolo);
+    }
+
+    // ✅ NUEVO: Escuchar cambios de tamaño de ventana (ej: girar la tableta)
+    window.addEventListener('resize', () => {
+        const opcionActiva = document.querySelector('.opcion-moneda.seleccionada');
+        if (opcionActiva) {
+            actualizarTextoSelector(opcionActiva.dataset.simbolo);
+        }
+    });
+
     // 1. Toggle del dropdown principal
     selectorMoneda.addEventListener('click', (e) => {
         e.stopPropagation(); // Evita que el click se propague al document y cierre el menú inmediatamente
@@ -33,10 +59,8 @@ export function inicializarSelectorMoneda() {
             opcionesMoneda.forEach(o => o.classList.remove('seleccionada'));
             opcion.classList.add('seleccionada');
             
-            // Actualizar texto del selector
-            if (monedaActualText) {
-                monedaActualText.textContent = `Venezuela (${simbolo})`;
-            }
+            // ✅ ACTUALIZADO: Usar la función responsiva en lugar de texto fijo
+            actualizarTextoSelector(simbolo);
             
             // Cerrar dropdown
             dropdownMonedas.classList.remove('activo');
