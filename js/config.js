@@ -16,10 +16,18 @@ export const CONFIG = {
 export const PRODUCTOS = [
     { 
         id: 1, 
-        nombre: "Marcalibros Girasoles Dorados", // ✅ CAMBIO: Ahora dice "Marcalibros" en lugar de "Separador"
+        nombre: "Marcalibros Girasoles Dorados",
         precio: 3.50, 
         categoria: "marcalibros", 
-        imagen: "/puntimeraki/img/separadores_de_libro/amarillo_1.jpg", 
+        imagen: "/puntimeraki/img/marcalibros/amarillo_1.jpg", // ✅ RUTA ACTUALIZADA
         url: "/puntimeraki/marcalibros/girasoles-dorados.html" 
+    },
+    { 
+        id: 99, 
+        nombre: "Marcalibros Personalizado", 
+        precio: 5.00, 
+        categoria: "marcalibros", 
+        imagen: "/puntimeraki/img/marcalibros/personalizado.jpg", // ✅ NUEVO PRODUCTO
+        url: "/puntimeraki/marcalibros/personalizado.html" 
     }
 ];
