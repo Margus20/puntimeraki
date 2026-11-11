@@ -519,7 +519,9 @@
     font-weight: bold;
 }
 
+/* ========================================== */
 /* ✅ RESPONSIVE DETALLE PRODUCTO */
+/* ========================================== */
 @media (max-width: 768px) {
     /* ✅ NUEVO: Espacio inferior para que los botones flotantes NO tapen el contenido final */
     .producto-detalle {
@@ -585,4 +587,136 @@
     .producto-caracteristicas li {
         font-size: 0.95rem;
     }
+}
+
+/* ========================================== */
+/* ✅ NUEVO: ESTILOS DEL MODAL DEL CARRITO (PUNTIMERAKI) */
+/* ========================================== */
+
+/* Header del carrito - Morado oscuro con letras blancas */
+#modal-carrito .modal-header {
+    background-color: var(--morado-oscuro, #180326) !important;
+    color: #FFFFFF !important;
+    padding: 15px 20px;
+    border-radius: 15px 15px 0 0;
+}
+
+#modal-carrito .modal-header h2,
+#modal-carrito .modal-header h3 {
+    color: #FFFFFF !important;
+    font-family: var(--fuente-titulo, 'Playball', cursive) !important;
+    margin: 0;
+}
+
+#modal-carrito .btn-cerrar-modal {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-carrito .btn-cerrar-modal:hover {
+    color: var(--amarillo, #F2BC79) !important;
+}
+
+/* Items del carrito */
+.item-carrito {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+.item-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-carrito .info-item {
+    flex: 1;
+}
+
+.item-carrito .info-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--chocolate);
+    margin-bottom: 5px;
+}
+
+.item-carrito .info-item span {
+    font-size: 0.85rem;
+    color: var(--gris-oscuro);
+}
+
+.item-carrito .acciones-carrito {
+    text-align: right;
+}
+
+.item-carrito .precio-subtotal {
+    font-weight: bold;
+    color: var(--chocolate);
+    margin: 0;
+}
+
+.item-carrito .btn-eliminar {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.item-carrito .btn-eliminar:hover {
+    color: #c0392b;
+}
+
+/* Total del carrito */
+#total-carrito {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--chocolate);
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* Botón de WhatsApp del carrito */
+#btn-finalizar-pedido {
+    background: var(--color-whatsapp, #25D366) !important;
+    color: #FFFFFF !important;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+
+#btn-finalizar-pedido:hover {
+    background: var(--color-whatsapp-oscuro, #128C7E) !important;
+    transform: translateY(-2px);
+}
+
+/* Carrito vacío */
+.carrito-vacio {
+    text-align: center;
+    color: var(--gris-oscuro);
+    padding: 30px;
+    font-style: italic;
 }
