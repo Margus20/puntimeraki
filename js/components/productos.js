@@ -71,13 +71,13 @@ export function renderizarProductos(listaProductos, tasaCambio) {
             </div>
         `;
 
-        // ✅ CAMBIO PRINCIPAL: Si es el producto personalizado, el botón dice "Cotizar" y es un enlace
+        // ✅ CAMBIO PRINCIPAL CORREGIDO: Si es el producto personalizado, el botón es un enlace DIRECTO a WhatsApp (igual que el botón verde)
         const esPersonalizado = producto.id === 99 || producto.nombre.toLowerCase().includes('personalizado');
         
         let botonAccion = '';
-        if (esPersonalizado && esClicable) {
-            // Enlace con estilo de botón para que se vea igual, pero navega a la página de detalle
-            botonAccion = `<a href="${productoURL}" class="btn-agregar-carrito" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Cotizar</a>`;
+        if (esPersonalizado) {
+            // Enlace directo a WhatsApp, target="_blank" para abrir en nueva pestaña y no salir del sitio
+            botonAccion = `<a href="https://wa.me/584242612752?text=Hola,%20quiero%20hacer%20un%20pedido%20de%20marcalibros%20personalizados" target="_blank" class="btn-agregar-carrito" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #25D366; color: white;">💬 Cotizar</a>`;
         } else {
             // Comportamiento normal: botón de Agregar al carrito
             botonAccion = `<button class="btn-agregar-carrito" data-id="${producto.id}">Agregar</button>`;
