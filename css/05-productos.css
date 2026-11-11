@@ -513,6 +513,11 @@
 
 /* ✅ RESPONSIVE DETALLE PRODUCTO */
 @media (max-width: 768px) {
+    /* ✅ NUEVO: Espacio inferior para que los botones flotantes NO tapen el contenido final */
+    .producto-detalle {
+        padding-bottom: 120px;
+    }
+
     .producto-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -527,9 +532,17 @@
         max-width: 100%;
     }
     
-    /* ✅ TÍTULO más pequeño en móvil para que quepa en una línea */
+    /* ✅ TÍTULO más compacto en móvil para evitar que ocupe 3 líneas */
     .producto-info h1 {
-        font-size: 1.4rem !important;
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+    
+    /* ✅ TÍTULO de descripción más compacto en móvil */
+    .producto-descripcion-full h2 {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
     }
     
     .precio-principal {
