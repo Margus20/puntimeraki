@@ -1,10 +1,32 @@
 // ==========================================
-// LOGICA DEL CARRITO DE COMPRAS
+// LOGICA DEL CARRITO DE COMPRAS (PUNTIMERAKI)
 // ==========================================
 
-// ✅ CAMBIO 1: Número de WhatsApp corregido al de Puntimeraki
+// ✅ CAMBIO 1: Llaves únicas para evitar conflictos con otros proyectos
+const CARRITO_KEY = 'puntimeraki_carrito';
+const CARRITO_TIME_KEY = 'puntimeraki_carrito_time';
+const EXPIRATION_HOURS = 12; // El carrito se borra automáticamente después de 12 horas
 const NUMERO_WHATSAPP = "584242612752";
-let carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+
+// ✅ CAMBIO 2: Función para obtener el carrito verificando su antigüedad
+function obtenerCarrito() {
+    const tiempoGuardado = localStorage.getItem(CARRITO_TIME_KEY);
+    
+    if (tiempoGuardado) {
+        const ahora = Date.now();
+        const horasPasadas = (ahora - parseInt(tiempoGuardado, 10)) / (1000 * 60 * 60);
+        
+        if (horasPasadas > EXPIRATION_HOURS) {
+            console.log('[CARRITO]: Carrito expirado (más de 12 horas). Limpiando...');
+            localStorage.removeItem(CARRITO_KEY);
+            localStorage.removeItem(CARRITO_TIME_KEY);
+            return [];
+        }
+    }
+    return JSON.parse(localStorage.getItem(CARRITO_KEY) || '[]');
+}
+
+let carrito = obtenerCarrito();
 
 export function inicializarCarrito() {
     console.log('[CARRITO]: Inicializando... Productos actuales:', carrito.length);
@@ -18,7 +40,7 @@ export function inicializarCarrito() {
     
     // Escuchar actualizaciones desde otras partes
     window.addEventListener('carritoActualizado', () => {
-        carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+        carrito = obtenerCarrito();
         actualizarContadorCarrito();
     });
 }
@@ -66,11 +88,12 @@ function agregarAlCarrito(producto) {
     guardarCarrito();
     actualizarContadorCarrito();
     window.dispatchEvent(new Event('carritoActualizado'));
-    mostrarNotificacion('Producto agregado al carrito!');
+    mostrarNotificacion('✅ Producto agregado al carrito');
 }
 
 function guardarCarrito() {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem(CARRITO_KEY, JSON.stringify(carrito));
+    localStorage.setItem(CARRITO_TIME_KEY, Date.now().toString()); // Guarda la hora actual
 }
 
 function actualizarContadorCarrito() {
@@ -101,7 +124,7 @@ export function mostrarCarritoModal() {
         return;
     }
 
-    carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    carrito = obtenerCarrito();
     lista.innerHTML = "";
     let total = 0;
 
@@ -116,7 +139,8 @@ export function mostrarCarritoModal() {
             const path = window.location.pathname;
             const isSubfolder = path.includes('/galletas/') || path.includes('/mermeladas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/') || path.includes('/portavelas/');
             const imgBasePath = isSubfolder ? '../' : '';
-            // ✅ CAMBIO ADICIONAL: Imagen de respaldo actualizada al logo de Puntimeraki
+            
+            // ✅ IMAGEN: Se asegura de usar la ruta correcta
             const imgSrc = item.imagen ? `${imgBasePath}${item.imagen}` : `${imgBasePath}img/logo_navidad.png`;
 
             const div = document.createElement("div");
@@ -179,16 +203,14 @@ function eliminarDelCarrito(index) {
     mostrarCarritoModal();
 }
 
-// ✅ CORREGIDO: Ahora cierra el modal y no causa redirección
 export function finalizarPedidoWhatsApp() {
-    carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    carrito = obtenerCarrito();
     
     if (carrito.length === 0) {
         mostrarNotificacion("Tu carrito esta vacio");
         return;
     }
 
-    // ✅ CAMBIO 2: Nombre de la tienda corregido en el mensaje de WhatsApp
     let mensaje = "Hola Puntimeraki! Quiero hacer el siguiente pedido:%0A%0A";
     let total = 0;
 
@@ -201,15 +223,18 @@ export function finalizarPedidoWhatsApp() {
     mensaje += `%0A*Total a pagar: $${total.toFixed(2)}*`;
     mensaje += "%0A%0AQuedo atento a los datos de Pago Movil para realizar la transferencia. Gracias!";
 
-    // ✅ Abrir WhatsApp en nueva pestaña
     const whatsappUrl = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`;
     window.open(whatsappUrl, '_blank');
     
-    // ✅ Cerrar el modal del carrito inmediatamente
     cerrarCarritoModal();
     
-    // ✅ Mostrar notificación de confirmación
-    mostrarNotificacion('¡Pedido enviado! Revisa WhatsApp para continuar.');
+    // ✅ CAMBIO 3: Limpiar el carrito después de enviar el pedido exitosamente
+    carrito = [];
+    guardarCarrito();
+    actualizarContadorCarrito();
+    window.dispatchEvent(new Event('carritoActualizado'));
+    
+    mostrarNotificacion('✅ ¡Pedido enviado! Revisa WhatsApp.');
 }
 
 export function mostrarNotificacion(mensaje) {
