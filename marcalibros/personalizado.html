@@ -63,7 +63,8 @@
                         <div class="precio-secundario" id="precio-bolivares">
                             Bs. 0
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--gris-oscuro); margin-top: 10px; font-style: italic;">
+                        <!-- ✅ CAMBIO: Texto más grande, sin cursiva y con mejor fuente -->
+                        <p style="font-size: 1rem; color: var(--chocolate); margin-top: 10px; font-style: normal; font-family: var(--fuente-texto); font-weight: 500;">
                             Precio base - Cotizar según diseño
                         </p>
                     </div>
@@ -106,9 +107,10 @@
                         </ul>
                     </div>
                     
-                    <div style="background: var(--rosa); padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center;">
-                        <h3 style="color: var(--chocolate); margin-bottom: 15px;"> ¿Cómo hacer tu pedido?</h3>
-                        <ol style="text-align: left; max-width: 600px; margin: 0 auto; line-height: 1.8;">
+                    <!-- ✅ CAMBIO: Caja con clase CSS en lugar de solo estilos inline -->
+                    <div class="pedido-info-box" style="background: var(--rosa); padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center; font-family: var(--fuente-texto);">
+                        <h3 style="color: var(--chocolate); margin-bottom: 15px; font-family: var(--fuente-subtitulo); font-weight: 700;"> ¿Cómo hacer tu pedido?</h3>
+                        <ol style="text-align: left; max-width: 600px; margin: 0 auto; line-height: 1.8; font-family: var(--fuente-texto); font-size: 1rem; color: #000;">
                             <li><strong>Paso 1:</strong> Haz clic en el botón "Consultar y Cotizar por WhatsApp"</li>
                             <li><strong>Paso 2:</strong> Cuéntanos tu idea (colores, diseño, temática, cantidad)</li>
                             <li><strong>Paso 3:</strong> Te enviamos un boceto o propuesta del diseño</li>
@@ -117,15 +119,16 @@
                         </ol>
                     </div>
                     
-                    <div style="margin-top: 30px; padding: 20px; background: var(--gris-claro); border-radius: 15px; border-left: 5px solid var(--amarillo);">
-                        <h3>💡 Ideas para tu marcalibros personalizado:</h3>
-                        <ul style="line-height: 1.8;">
-                            <li>🌸 <strong>Temática floral:</strong> Girasoles, rosas, lavanda, etc.</li>
-                            <li>🌀 <strong>Mandalas:</strong> Diseños circulares simétricos</li>
-                            <li>🎨 <strong>Colores corporativos:</strong> Para regalos empresariales</li>
-                            <li>📚 <strong>Temática literaria:</strong> Basados en tus libros favoritos</li>
-                            <li>🎁 <strong>Regalos especiales:</strong> Cumpleaños, aniversarios, bodas</li>
-                            <li>🌈 <strong>Arcoíris:</strong> Todos los colores que imagines</li>
+                    <!-- ✅ CAMBIO: Caja con clase CSS en lugar de solo estilos inline -->
+                    <div class="ideas-info-box" style="margin-top: 30px; padding: 20px; background: var(--gris-claro); border-radius: 15px; border-left: 5px solid var(--amarillo); font-family: var(--fuente-texto);">
+                        <h3 style="color: var(--chocolate); margin-bottom: 15px; font-family: var(--fuente-subtitulo); font-weight: 700;"> Ideas para tu marcalibros personalizado:</h3>
+                        <ul style="line-height: 1.8; font-family: var(--fuente-texto); font-size: 1rem; color: #000; padding-left: 0;">
+                            <li style="margin-bottom: 8px;"> <strong>Temática floral:</strong> Girasoles, rosas, lavanda, etc.</li>
+                            <li style="margin-bottom: 8px;">🌀 <strong>Mandalas:</strong> Diseños circulares simétricos</li>
+                            <li style="margin-bottom: 8px;">🎨 <strong>Colores corporativos:</strong> Para regalos empresariales</li>
+                            <li style="margin-bottom: 8px;"> <strong>Temática literaria:</strong> Basados en tus libros favoritos</li>
+                            <li style="margin-bottom: 8px;"> <strong>Regalos especiales:</strong> Cumpleaños, aniversarios, bodas</li>
+                            <li style="margin-bottom: 8px;">🌈 <strong>Arcoíris:</strong> Todos los colores que imagines</li>
                         </ul>
                     </div>
                 </div>
