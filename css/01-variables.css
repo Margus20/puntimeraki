@@ -52,11 +52,11 @@
     --color-borde-menu-subitem: 1px solid rgba(255,255,255,0.05);
     
     /* ========================================== */
-    /* 📝 TIPOGRAFÍA */
+    /* 📝 TIPOGRAFÍA (JERARQUÍA PERFECTA) */
     /* ========================================== */
-    --fuente-titulo: 'Playball', cursive;
-    --fuente-subtitulo: 'Caveat', cursive;
-    --fuente-texto: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuente-titulo: 'Playball', cursive; /* ✅ Para todos los h1 (Títulos principales) */
+    --fuente-subtitulo: 'Caveat', cursive; /* ✅ Para todos los h2 y h3 (Subtítulos) */
+    --fuente-texto: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* ✅ Para párrafos y texto corrido (Estilo "Sobre Mí") */
     
     /* Tamaños de fuente base */
     --tamano-titulo-grande: 36px;
