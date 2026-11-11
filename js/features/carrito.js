@@ -2,7 +2,8 @@
 // LOGICA DEL CARRITO DE COMPRAS
 // ==========================================
 
-const NUMERO_WHATSAPP = "584122879803";
+// ✅ CAMBIO 1: Número de WhatsApp corregido al de Puntimeraki
+const NUMERO_WHATSAPP = "584242612752";
 let carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
 
 export function inicializarCarrito() {
@@ -113,9 +114,10 @@ export function mostrarCarritoModal() {
             total += subtotal;
 
             const path = window.location.pathname;
-            const isSubfolder = path.includes('/galletas/') || path.includes('/mermeladas/');
+            const isSubfolder = path.includes('/galletas/') || path.includes('/mermeladas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/') || path.includes('/portavelas/');
             const imgBasePath = isSubfolder ? '../' : '';
-            const imgSrc = item.imagen ? `${imgBasePath}${item.imagen}` : `${imgBasePath}img/slaky_cuadrado.jpg`;
+            // ✅ CAMBIO ADICIONAL: Imagen de respaldo actualizada al logo de Puntimeraki
+            const imgSrc = item.imagen ? `${imgBasePath}${item.imagen}` : `${imgBasePath}img/logo_navidad.png`;
 
             const div = document.createElement("div");
             div.className = "item-carrito";
@@ -156,7 +158,6 @@ export function mostrarCarritoModal() {
             div.appendChild(infoDiv);
             div.appendChild(accionesDiv);
             
-            // AQUI ESTABA EL ERROR: Se cambio divPY por div
             lista.appendChild(div); 
         });
         
@@ -186,7 +187,8 @@ export function finalizarPedidoWhatsApp() {
         return;
     }
 
-    let mensaje = "Hola SLAKIDOM! Quiero hacer el siguiente pedido:%0A%0A";
+    // ✅ CAMBIO 2: Nombre de la tienda corregido en el mensaje de WhatsApp
+    let mensaje = "Hola Puntimeraki! Quiero hacer el siguiente pedido:%0A%0A";
     let total = 0;
 
     carrito.forEach(item => {
