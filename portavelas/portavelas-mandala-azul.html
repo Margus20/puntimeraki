@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portavelas Mandala Azul - Arte en puntillismo sobre cemento hecho a mano por Puntimeraki">
+    <title>Portavelas Mandala Azul - Puntimeraki</title>
+    
+    <link rel="icon" type="image/png" href="../img/favicon.jpg">
+    
+    <!-- ✅ FUENTES DE GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS MODULAR -->
+    <link rel="stylesheet" href="../css/01-variables.css">
+    <link rel="stylesheet" href="../css/02-base.css">
+    <link rel="stylesheet" href="../css/03-header.css">
+    <link rel="stylesheet" href="../css/05-productos.css">
+    <link rel="stylesheet" href="../css/11-menu.css">
+    <link rel="stylesheet" href="../css/09-footer.css">
+    <link rel="stylesheet" href="../css/10-animaciones.css">
+</head>
+<body>
+    
+    <!-- ✅ HEADER (se inyecta desde app.js) -->
+    <div id="header-container"></div>
+    
+    <main>
+        <!-- ✅ SECCIÓN DE DETALLE CON DATOS DINÁMICOS (data-*) -->
+        <section class="producto-detalle" 
+                 data-id="10" 
+                 data-nombre="Portavelas Mandala Azul" 
+                 data-precio="8.00" 
+                 data-imagen="../img/portavelas/foto1_1.jpg">
+            
+            <div class="producto-grid">
+                <!-- ✅ IMAGEN DEL PRODUCTO CON LIGHTBOX -->
+                <div class="producto-imagen">
+                    <img src="../img/portavelas/foto1_1.jpg" 
+                         alt="Portavelas Mandala Azul - Puntimeraki" 
+                         class="img-lightbox"
+                         data-lightbox="portavelas-mandala-azul"
+                         onerror="this.src='../img/logo_navidad.png'">
+                </div>
+                
+                <!-- INFORMACIÓN -->
+                <div class="producto-info">
+                    <h1>Portavelas Mandala Azul</h1>
+                    
+                    <!-- ✅ PRECIO -->
+                    <div class="producto-precio-detalle">
+                        <div class="precio-wrapper">
+                            <span class="precio-principal">$8</span>
+                            <span class="precio-centavos">00</span>
+                        </div>
+                        <div class="precio-secundario" id="precio-bolivares">
+                            Bs. 0
+                        </div>
+                    </div>
+                    
+                    <!-- CANTIDAD Y BOTÓN -->
+                    <div class="cantidad-selector">
+                        <label>Cantidad:</label>
+                        <div class="accion-container">
+                            <div class="cantidad-input">
+                                <button type="button" class="btn-cantidad" data-accion="restar">−</button>
+                                <input type="number" class="input-cantidad" value="1" min="1" max="50" readonly>
+                                <button type="button" class="btn-cantidad" data-accion="sumar">+</button>
+                            </div>
+                            <button class="btn-agregar-detalle btn-agregar-carrito">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPCIÓN ANCHO COMPLETO -->
+                <div class="producto-descripcion-full">
+                    <h2>Descripción del Producto</h2>
+                    <p>
+                        Hermoso portavelas elaborado en cemento decorado con la técnica del puntillismo, 
+                        presentando un diseño de mandala en tonos azules que van desde el azul cielo 
+                        hasta el azul royal. Cada punto fue colocado a mano con infinita paciencia 
+                        y dedicación, creando una pieza única que combina funcionalidad con arte.
+                    </p>
+                    <p>
+                        Perfecto para crear ambientes cálidos y relajantes. Su diseño circular y 
+                        los tonos azules transmiten tranquilidad y armonía, ideal para meditación, 
+                        yoga o simplemente disfrutar de un momento de paz. Cada portavelas es 
+                        irrepetible y está hecho con amor.
+                    </p>
+                    
+                    <div class="producto-caracteristicas">
+                        <h3>Características:</h3>
+                        <ul>
+                            <li>Material: Cemento decorado a mano</li>
+                            <li>Técnica: Pintura en puntillismo</li>
+                            <li>Diseño: Mandala en tonos azules</li>
+                            <li>Acabado: Barniz protector resistente al calor</li>
+                            <li>Dimensiones: Aprox. 10 cm diámetro x 4 cm alto</li>
+                            <li>Incluye: Portavelas (vela no incluida)</li>
+                            <li>100% hecho a mano</li>
+                            <li>Cada pieza es única e irrepetible</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ✅ GALERÍA DE IMÁGENES ADICIONAL -->
+                    <div style="margin-top: 40px;">
+                        <h3 style="text-align: center; margin-bottom: 20px; font-family: var(--fuente-subtitulo);">Vista desde diferentes ángulos</h3>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; margin: 0 auto;">
+                            <img src="../img/portavelas/foto1_1.jpg" 
+                                 alt="Portavelas Mandala Azul - Vista lateral" 
+                                 class="img-lightbox"
+                                 data-lightbox="portavelas-mandala-azul"
+                                 style="width: 100%; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
+                                 onerror="this.style.display='none'">
+                            <img src="../img/portavelas/foto1_2.jpg" 
+                                 alt="Portavelas Mandala Azul - Vista superior" 
+                                 class="img-lightbox"
+                                 data-lightbox="portavelas-mandala-azul"
+                                 style="width: 100%; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
+                                 onerror="this.style.display='none'">
+                        </div>
+                        <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--gris-oscuro); font-style: italic;">
+                            💡 Haz clic en las imágenes para verlas en tamaño grande
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ✅ FOOTER (se inyecta desde app.js) -->
+    <div id="footer-container"></div>
+
+    <!-- ✅ LIGHTBOX MODAL (Oculto por defecto) -->
+    <div id="lightbox-modal" class="lightbox-modal" style="display: none;">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <img id="lightbox-img" src="" alt="Vista ampliada">
+        </div>
+    </div>
+
+    <!-- ✅ SCRIPTS MODULARES -->
+    <script type="module" src="../js/app.js"></script>
+    <script type="module" src="../js/features/detalle-producto.js"></script>
+    
+    <!-- ✅ SCRIPT DEL LIGHTBOX -->
+    <script>
+        // Lightbox simple para imágenes de productos
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightboxModal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const images = document.querySelectorAll('.img-lightbox');
+            
+            // Abrir lightbox al hacer clic en imagen
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    const src = img.getAttribute('src');
+                    lightboxImg.src = src;
+                    lightboxModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Evitar scroll
+                });
+            });
+            
+            // Cerrar lightbox
+            const closeLightbox = () => {
+                lightboxModal.style.display = 'none';
+                document.body.style.overflow = ''; // Restaurar scroll
+            };
+            
+            closeBtn.addEventListener('click', closeLightbox);
+            
+            // Cerrar al hacer clic fuera de la imagen
+            lightboxModal.addEventListener('click', (e) => {
+                if (e.target === lightboxModal) {
+                    closeLightbox();
+                }
+            });
+            
+            // Cerrar con tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightboxModal.style.display === 'block') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
