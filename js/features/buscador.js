@@ -62,7 +62,7 @@ export function inicializarBuscador() {
             if (!sinResultados) {
                 sinResultados = document.createElement('div');
                 sinResultados.className = 'sin-resultados';
-                sinResultados.textContent = 'No se encontraron productos que coincidan con tu búsqueda. 🎨'; // ✅ CAMBIO: Emoji de arte
+                sinResultados.textContent = 'No se encontraron productos que coincidan con tu búsqueda. 🎨';
                 productosGrid.appendChild(sinResultados);
             }
             sinResultados.classList.toggle('visible', termino !== '' && visibles === 0);
@@ -86,11 +86,19 @@ export function inicializarBuscador() {
                 const item = document.createElement('div');
                 item.className = 'resultado-item';
                 
-                // Determinar la ruta correcta de la imagen
-                const path = window.location.pathname;
-                // ✅ CAMBIO: Actualizar a las nuevas carpetas de Puntimeraki
-                const isSubfolder = path.includes('/portavelas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/');
-                const imgSrc = producto.imagen ? (isSubfolder ? `../${producto.imagen}` : producto.imagen) : '';
+                // ✅ CORRECCIÓN DE RUTAS DE IMAGEN:
+                // Si la ruta ya empieza con '/', es absoluta y se usa tal cual.
+                // Si no, se aplica la lógica de subcarpeta (../)
+                let imgSrc = '';
+                if (producto.imagen) {
+                    if (producto.imagen.startsWith('/')) {
+                        imgSrc = producto.imagen;
+                    } else {
+                        const path = window.location.pathname;
+                        const isSubfolder = path.includes('/portavelas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/');
+                        imgSrc = isSubfolder ? `../${producto.imagen}` : producto.imagen;
+                    }
+                }
 
                 item.innerHTML = `
                     <img src="${imgSrc}" alt="${producto.nombre}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
@@ -98,23 +106,27 @@ export function inicializarBuscador() {
                     <span>${producto.nombre}</span>
                 `;
 
-                // ✅ CORRECCIÓN DE RUTAS 404: Lógica inteligente para construir la URL
+                // ✅ CORRECCIÓN DE RUTAS DE ENLACE (URL):
+                // Misma lógica: si es absoluta, se usa tal cual. Si es relativa, se ajusta.
                 item.addEventListener('click', () => {
                     if (producto.url) {
                         let urlDestino = producto.url;
                         
-                        // Si la URL en config.js ya incluye la carpeta (ej: "marcalibros/girasoles-dorados.html" o "/marcalibros/girasoles-dorados.html")
-                        if (urlDestino.includes('/')) {
-                            // Si estamos en una subcarpeta, necesitamos subir un nivel (../)
-                            urlDestino = isSubfolder ? `../${urlDestino}` : urlDestino;
+                        if (urlDestino.startsWith('/')) {
+                            // Es ruta absoluta, ir directamente
+                            window.location.href = urlDestino;
                         } else {
-                            // Si la URL es solo el archivo (ej: "girasoles-dorados.html"), le agregamos la categoría
-                            urlDestino = isSubfolder 
-                                ? `../${producto.categoria}/${urlDestino}` 
-                                : `${producto.categoria}/${urlDestino}`;
+                            // Es ruta relativa, aplicar lógica de subcarpeta
+                            const path = window.location.pathname;
+                            const isSubfolder = path.includes('/portavelas/') || path.includes('/marcalibros/') || path.includes('/llaveros/') || path.includes('/collares/') || path.includes('/porta_incensos/') || path.includes('/bambalinas/');
+                            
+                            if (urlDestino.includes('/')) {
+                                urlDestino = isSubfolder ? `../${urlDestino}` : urlDestino;
+                            } else {
+                                urlDestino = isSubfolder ? `../${producto.categoria}/${urlDestino}` : `${producto.categoria}/${urlDestino}`;
+                            }
+                            window.location.href = urlDestino;
                         }
-                        
-                        window.location.href = urlDestino;
                     }
                 });
 
